@@ -13,10 +13,16 @@ import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import toast from "react-hot-toast";
-import { FaHeadphones } from "react-icons/fa6";
-import { FaRegEnvelope } from "react-icons/fa6";
-import { FaLocationDot } from "react-icons/fa6";
-import { FaRegUser } from "react-icons/fa6";
+import { 
+  FaHeadphones, 
+  FaRegEnvelope, 
+  FaLocationDot, 
+  FaRegUser,
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin
+} from "react-icons/fa6";
 
 const HeaderTop = () => {
   const { data: session }: any = useSession();
@@ -25,45 +31,54 @@ const HeaderTop = () => {
     setTimeout(() => signOut(), 1000);
     toast.success("Logout successful!");
   }
+
   return (
-    <div className="h-10 text-white bg-blue-500 max-lg:px-5 max-lg:h-16 max-[573px]:px-0">
-      <div className="flex justify-between h-full max-lg:flex-col max-lg:justify-center max-lg:items-center max-w-screen-2xl mx-auto px-12 max-[573px]:px-0">
-        <ul className="flex items-center h-full gap-x-5 max-[370px]:text-sm max-[370px]:gap-x-2">
-          <li className="flex items-center gap-x-2 font-semibold">
-            <FaHeadphones className="text-white" />
-            <span>+381 61 123 321</span>
-          </li>
-          <li className="flex items-center gap-x-2 font-semibold">
-            <FaRegEnvelope className="text-white text-xl" />
-            <span>test@email.com</span>
-          </li>
-        </ul>
-        <ul className="flex items-center gap-x-5 h-full max-[370px]:text-sm max-[370px]:gap-x-2 font-semibold">
-          {!session ? ( 
-          <>
-          <li className="flex items-center">
-            <Link href="/login" className="flex items-center gap-x-2 font-semibold">
-              <FaRegUser className="text-white" />
-              <span>Login</span>
-            </Link>
-          </li>
-          <li className="flex items-center">
-            <Link href="/register" className="flex items-center gap-x-2 font-semibold">
-              <FaRegUser className="text-white" />
-              <span>Register</span>
-            </Link>
-          </li>
-          </>
-          ) :  (<>
-          <span className="ml-10 text-base">{session.user?.email}</span>
-          <li className="flex items-center">
-            <button onClick={() => handleLogout()} className="flex items-center gap-x-2 font-semibold">
-              <FaRegUser className="text-white" />
-              <span>Log out</span>
-            </button>
-          </li>
-          </>)}
-        </ul>
+    <div className="bg-gradient-to-r from-green-900 to-green-700 text-white shadow-md">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-2">
+          {/* Contact Information */}
+          <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start">
+            <a href="tel:+38161123321" className="flex items-center gap-2 hover:text-green-200 transition-colors">
+              <FaHeadphones className="text-lg" />
+              <span className="text-sm font-medium">+234 807 474 7449</span>
+            </a>
+            <a href="mailto:test@email.com" className="flex items-center gap-2 hover:text-green-200 transition-colors">
+              <FaRegEnvelope className="text-lg" />
+              <span className="text-sm font-medium">test@email.com</span>
+            </a>
+          </div>
+
+          {/* Social Media Icons */}
+          <div className="flex items-center gap-4 mt-2 lg:mt-0">
+            <a href="#" className="hover:text-green-200 transition-colors">
+              <FaFacebook className="text-lg" />
+            </a>
+            <a href="#" className="hover:text-green-200 transition-colors">
+              <FaTwitter className="text-lg" />
+            </a>
+            <a href="#" className="hover:text-green-200 transition-colors">
+              <FaInstagram className="text-lg" />
+            </a>
+            <a href="#" className="hover:text-green-200 transition-colors">
+              <FaLinkedin className="text-lg" />
+            </a>
+          </div>
+
+          {/* User Session Info */}
+          {session && (
+            <div className="flex items-center justify-center lg:justify-end gap-4 mt-2 lg:mt-0">
+              <span className="text-sm font-medium">{session.user?.email}</span>
+              <div className="w-px h-4 bg-green-600" />
+              <button 
+                onClick={handleLogout} 
+                className="flex items-center gap-2 hover:text-green-200 transition-colors"
+              >
+                <FaRegUser className="text-lg" />
+                <span className="text-sm font-medium">Log out</span>
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -214,27 +214,36 @@ const demoCategories = [
 ];
 
 async function insertDemoData() {
-  
-  for (const category of demoCategories) {
-    await prisma.category.create({
-      data: category,
-    });
+  try {
+    console.log("Inserting demo categories...");
+    for (const category of demoCategories) {
+      const existingCategory = await prisma.category.findUnique({
+        where: { name: category.name }, // Check by name since it's unique
+      });
+
+      if (!existingCategory) {
+        await prisma.category.create({ data: category });
+      } else {
+        console.log(`Category "${category.name}" already exists. Skipping.`);
+      }
+    }
+    console.log("Demo categories inserted successfully!");
+
+    console.log("Inserting demo products...");
+    for (const product of demoProducts) {
+      await prisma.product.upsert({
+        where: { id: product.id },
+        update: {},
+        create: product,
+      });
+    }
+    console.log("Demo products inserted successfully!");
+
+  } catch (error) {
+    console.error("Error inserting demo data:", error);
+  } finally {
+    await prisma.$disconnect();
   }
-  console.log("Demo categories inserted successfully!");
-  
-  for (const product of demoProducts) {
-    await prisma.product.create({
-      data: product,
-    });
-  }
-  console.log("Demo products inserted successfully!");
 }
 
-insertDemoData()
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+insertDemoData();
