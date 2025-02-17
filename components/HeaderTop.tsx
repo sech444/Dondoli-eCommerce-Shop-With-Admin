@@ -38,7 +38,7 @@ const HeaderTop = () => {
         <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-2">
           {/* Contact Information */}
           <div className="flex flex-wrap items-center gap-4 justify-center lg:justify-start">
-            <a href="tel:+38161123321" className="flex items-center gap-2 hover:text-green-200 transition-colors">
+            <a href="tel:+2348074747449" className="flex items-center gap-2 hover:text-green-200 transition-colors">
               <FaHeadphones className="text-lg" />
               <span className="text-sm font-medium">+234 807 474 7449</span>
             </a>

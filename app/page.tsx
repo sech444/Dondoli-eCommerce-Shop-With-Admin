@@ -28,8 +28,8 @@ export default function Home() {
     <div className="relative min-h-screen">
         <Hero />
         {/* <IntroducingSection />
-        <CategoryMenu />
-        <ProductsSection /> */}
+        <CategoryMenu /> */}
+        {/* <ProductsSection /> */}
       </div>
     </main>
   );
