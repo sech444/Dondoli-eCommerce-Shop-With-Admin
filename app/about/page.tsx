@@ -4,9 +4,9 @@ import React from 'react';
 import { ChevronRight, Leaf, Shield, Heart, Award, MessageCircle } from 'lucide-react';
 
 export const metadata = {
-  title: 'About DONDOIL | Natural Health & Wellness Solutions',
-  description: 'Learn about DONDOIL\'s mission and our innovative Hosannaoil supplement for enhancing immunity and overall wellness.',
-};
+    title: 'About DONDOIL | Natural Health & Wellness Solutions',
+    description: 'Learn about DONDOIL&apos;s mission and our innovative Hosannaoil supplement for enhancing immunity and overall wellness.',
+  };
 
 const AboutPage = () => {
   return (
