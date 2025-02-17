@@ -71,7 +71,7 @@ const AboutPage = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                    Hosannaoil is our revolutionary Food Supplement and Immune Booster, scientifically developed to enhance the body's natural defense systems. This herbal remedy wonder has been rigorously tested and validated by respected institutions.
+                    Hosannaoil is our revolutionary Food Supplement and Immune Booster, scientifically developed to enhance the body&apos;s natural defense systems. This herbal remedy wonder has been rigorously tested and validated by respected institutions.
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-center p-4 bg-white rounded-lg shadow-sm">
