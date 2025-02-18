@@ -38,7 +38,7 @@ const staticProducts: Product[] = [
     id: "1",
     name: "DONDOIL - 100ml",
     title: "DONDOIL - 100ml",
-    price: 25000,
+    price: 20000,
     description: "Natural immune system booster",
     image: "images/design-2.png",      // Fixed image path
     mainImage: "images/design-2.png",  // Fixed image path
@@ -72,7 +72,7 @@ const staticProducts: Product[] = [
     id: "3",
     name: "DONDOIL - Family Pack",
     title: "DONDOIL - Family Pack",
-    price: 12000,
+    price: 5000,
     description: "Perfect for the whole family",
     image: "images/dondooil.jpeg",      // Fixed image path
     mainImage: "images/dondooil.jpeg",  // Fixed image path

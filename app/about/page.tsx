@@ -66,12 +66,12 @@ const AboutPage = () => {
             <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12">
               <h2 className="text-3xl font-semibold text-green-700 mb-6 flex items-center">
                 <Award className="w-8 h-8 mr-3 text-green-600" />
-                Our Flagship Product: Hosannaoil
+                Our Flagship Product: DONDOIL
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                    Hosannaoil is our revolutionary Food Supplement and Immune Booster, scientifically developed to enhance the body&apos;s natural defense systems. This herbal remedy wonder has been rigorously tested and validated by respected institutions.
+                  DONDOIL is our revolutionary Food Supplement and Immune Booster, scientifically developed to enhance the body&apos;s natural defense systems. This herbal remedy wonder has been rigorously tested and validated by respected institutions.
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-center p-4 bg-white rounded-lg shadow-sm">
