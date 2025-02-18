@@ -89,7 +89,7 @@ export const navigation = {
     { name: "Register Discounts", href: "#" },
   ],
   about: [
-    { name: "About dondooil", href: "#" },
+    { name: "About dondooil", href: "/about" },
     { name: "Work With Us", href: "#" },
     { name: "Company Profile", href: "#" },
   ],

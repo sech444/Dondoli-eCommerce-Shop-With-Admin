@@ -126,11 +126,11 @@ const AdminSingleOrder = () => {
     };
 
     fetch(
-      `http://localhost:3001/api/order-product/${order?.id}`,
+      `http://localhost:3001/api/order-product/{order?.id}`,
       requestOptions
     ).then((response) => {
       fetch(
-        `http://localhost:3001/api/orders/${order?.id}`,
+        `http://localhost:3001/api/orders/{order?.id}`,
         requestOptions
       ).then((response) => {
         toast.success("Order deleted successfully");
@@ -347,7 +347,7 @@ const AdminSingleOrder = () => {
           {orderProducts?.map((product) => (
             <div className="flex items-center gap-x-4" key={product?.id}>
               <Image
-                src={product?.product?.mainImage ? `/${product?.product?.mainImage}` : "/product_placeholder.jpg"}
+                src={product?.product?.mainImage ? `/{product?.product?.mainImage}` : "/product_placeholder.jpg"}
                 alt={product?.product?.title}
                 width={50}
                 height={50}

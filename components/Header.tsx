@@ -1,21 +1,13 @@
-// *********************
-// Role of the component: Header component
-// Name of the component: Header.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <Header />
-// Input parameters: no input parameters
-// Output: Header component
-// *********************
+
 
 "use client";
 
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
 import HeaderTop from "./HeaderTop";
 import Image from "next/image";
 import Link from "next/link";
-import { FaBell, FaRegUser } from "react-icons/fa6";
+import { FaBell, FaRegUser, FaBars, FaXmark } from "react-icons/fa6";
 import CartElement from "./CartElement";
 import HeartElement from "./HeartElement";
 import { signOut, useSession } from "next-auth/react";
@@ -27,6 +19,7 @@ const Header = () => {
   const { data: session } = useSession();
   const pathname = usePathname();
   const { wishlist, setWishlist, wishQuantity } = useWishlistStore();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLogout = () => {
     setTimeout(() => signOut(), 1000);
@@ -80,37 +73,44 @@ const Header = () => {
       <HeaderTop />
       {!pathname.startsWith("/admin") ? (
         <div className="bg-white">
-        <div className="h-16 flex items-center justify-between px-6 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto">
-        <div className="flex justify-end">
-  <Link href="/" className="flex-shrink-0">
-    <Image 
-      src="/logo design.svg" 
-      width={80}
-      height={80}
-      alt="dondooil logo" 
-      className="size-80"
-    />
-  </Link>
-</div>
-         <div className="text-center flex flex-col gap-y-5  ">
-         <h2 className="text-green-800 absolute text-4xl pl-2 mb-2 inset-x-0 h-16 top-8 max-md:text-2xl max-[380px]:text-2xl">
-         <span className="text-white font-extrabold bg-green-700 font-sans inset-y-px block mb-2 inline-block px-2">DONDOIL</span>
-  <span className="text-black text-sm block mb-2">Aka</span>
-  <span className="text-orange-300 text-sm font-serif italic block mb-2">Ishannderoil / Hosannahoil</span>
-  <span className="text-orange-300 text-sm font-serif italic block">Enhancing immunity to fight diseases</span>
-</h2>
-</div>
-        
-        <div className="flex items-center space-x-6">
-            <HeartElement wishQuantity={wishQuantity} />
-            <CartElement />
-        </div>
-        </div>
+          <div className="h-16 flex items-center justify-between px-6 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto">
+            <div className="flex justify-end">
+              <Link href="/" className="flex-shrink-0">
+                <Image 
+                  src="/logo design.svg" 
+                  width={80}
+                  height={80}
+                  alt="dondooil logo" 
+                  className="size-80"
+                />
+              </Link>
+            </div>
+            <div className="hidden md:block text-center flex flex-col gap-y-5">
+              <h2 className="text-green-800 absolute text-4xl pl-2 mb-2 inset-x-0 h-16 top-8 max-md:text-2xl max-[380px]:text-2xl">
+                <span className="text-white font-extrabold bg-green-700 font-sans inset-y-px block mb-2 inline-block px-2">DONDOIL</span>
+                <span className="text-black text-sm block mb-2">Aka</span>
+                <span className="text-orange-300 text-sm font-serif italic block mb-2">Ishannderoil / Hosannahoil</span>
+                <span className="text-orange-300 text-sm font-serif italic block">Enhancing immunity to fight diseases</span>
+              </h2>
+            </div>
+            
+            <div className="flex items-center space-x-6">
+              <HeartElement wishQuantity={wishQuantity} />
+              <CartElement />
+              <button 
+                className="md:hidden text-green-800 text-2xl"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <FaXmark /> : <FaBars />}
+              </button>
+            </div>
+          </div>
 
-          <nav className="bg-gradient-to-r from-green-800 to-green-700 text-white">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block bg-gradient-to-r from-green-800 to-green-700 text-white">
             <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between py-4">
-                <div className="hidden md:flex items-center space-x-6">
+                <div className="flex items-center space-x-6">
                   {!session && (
                     <>
                       <Link href="/login" className="flex items-center gap-2 hover:text-green-200 font-medium transition-colors">
@@ -125,7 +125,7 @@ const Header = () => {
                   )}
                 </div>
 
-                <div className="hidden md:flex items-center space-x-8">
+                <div className="flex items-center space-x-8">
                   {['Home', 'Products', 'About', 'Contact'].map((item) => (
                     <Link 
                       key={item}
@@ -140,25 +140,41 @@ const Header = () => {
             </div>
           </nav>
 
-          <nav className="md:hidden bg-gradient-to-r from-green-600 to-green-500 text-white">
-            <div className="flex flex-wrap justify-between px-4 py-3 gap-y-2">
-              {['Home', 'Products', 'About', 'Contact'].map((item) => (
-                <Link 
-                  key={item}
-                  href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
-                  className="hover:text-green-200 font-medium"
-                >
-                  {item}
-                </Link>
-              ))}
-              {!session && (
-                <>
-                  <Link href="/login" className="hover:text-green-200 font-medium">Login</Link>
-                  <Link href="/register" className="hover:text-green-200 font-medium">Register</Link>
-                </>
-              )}
-            </div>
-          </nav>
+          {/* Mobile Navigation Dropdown */}
+          <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
+            <nav className="bg-gradient-to-r from-green-800 to-green-700 text-white">
+              <div className="px-4 py-2 space-y-2">
+                {['Home', 'Products', 'About', 'Contact'].map((item) => (
+                  <Link 
+                    key={item}
+                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    className="block py-2 hover:text-green-200 font-medium transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ))}
+                {!session && (
+                  <>
+                    <Link 
+                      href="/login" 
+                      className="block py-2 hover:text-green-200 font-medium transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Login
+                    </Link>
+                    <Link 
+                      href="/register" 
+                      className="block py-2 hover:text-green-200 font-medium transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Register
+                    </Link>
+                  </>
+                )}
+              </div>
+            </nav>
+          </div>
         </div>
       ) : (
         <div className="flex justify-between h-24 bg-white items-center px-4 sm:px-6 lg:px-8 max-w-screen-2xl mx-auto">
@@ -200,3 +216,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
