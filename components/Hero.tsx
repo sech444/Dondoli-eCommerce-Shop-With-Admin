@@ -16,13 +16,13 @@ const Hero = () => {
       <div className="grid grid-cols-2 items-center justify-items-center px-10 max-w-screen-2xl mx-auto h-full max-lg:grid-cols-1 max-lg:py-10 max-lg:gap-y-10 -mt-20 pt-16">
         <div className="flex flex-col gap-y-5 px-5 text-center max-lg:text-left">
           <h1 className="text-6xl text-green-800 font-bold mb-3 max-xl:text-5xl max-md:text-4xl max-sm:text-3xl">
-            <span className="font-extrabold font-sans inset-y-px block mb-2 inline-block px-2">DONDOIL</span>
+            <span className="font-extrabold font-sans inset-y-px block mb-2 inline-block px-2">DOND0OIL</span>
             <span className="text-gray-600 text-sm block mb-2">Aka</span>
             <span className="text-green-600 text-sm font-serif italic block mb-2">Ishannderoil / Hosannahoil</span>
             <span className="text-green-600 text-sm font-serif italic block">Enhancing immunity to fight diseases</span>
           </h1>
           <p className="text-gray-700 max-sm:text-sm max-w-2xl mx-auto">
-            Discover nature&apos;s power with DONDOIL, your trusted partner in natural health and wellness. 
+            Discover nature&apos;s power with DONDOOIL, your trusted partner in natural health and wellness. 
             Our premium herbal supplements are scientifically developed to enhance your body&apos;s natural 
             defense systems and promote overall wellbeing.
           </p>
