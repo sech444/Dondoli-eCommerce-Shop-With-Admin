@@ -87,7 +87,7 @@ const Header = () => {
             </div>
             <div className="hidden md:block text-center flex flex-col gap-y-5">
               <h2 className="text-green-800 absolute text-4xl pl-2 mb-2 inset-x-0 h-16 top-8 max-md:text-2xl max-[380px]:text-2xl">
-                <span className="text-white font-extrabold bg-green-700 font-sans inset-y-px block mb-2 inline-block px-2">DONDOIL</span>
+                <span className="text-white font-extrabold bg-green-700 font-sans inset-y-px block mb-2 inline-block px-2">DONDOOIL</span>
                 <span className="text-black text-sm block mb-2">Aka</span>
                 <span className="text-orange-300 text-sm font-serif italic block mb-2">Ishannderoil / Hosannahoil</span>
                 <span className="text-orange-300 text-sm font-serif italic block">Enhancing immunity to fight diseases</span>

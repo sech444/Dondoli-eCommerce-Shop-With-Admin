@@ -36,8 +36,8 @@ import Heading from "./Heading";
 const staticProducts: Product[] = [
   {
     id: "1",
-    name: "DONDOIL - 100ml",
-    title: "DONDOIL - 100ml",
+    name: "DONDOOIL - 100ml",
+    title: "DONDOOIL - 100ml",
     price: 20000,
     description: "Natural immune system booster",
     image: "images/design-2.png",      // Fixed image path
@@ -46,15 +46,15 @@ const staticProducts: Product[] = [
       name: "Immune Boosters"
     },
     categoryId: "immune-boosters",
-    manufacturer: "DONDOIL",
+    manufacturer: "DONDOOIL",
     inStock: 1,
     slug: "dondoil-100ml",
     rating: 5
   },
   {
     id: "2",
-    name: "DONDOIL - 200ml",
-    title: "DONDOIL - 200ml",
+    name: "DONDOOIL - 200ml",
+    title: "DONDOOIL - 200ml",
     price: 18500,
     description: "Enhanced formula for maximum immunity",
     image: "images/dosage.png",      // Fixed image path
@@ -63,15 +63,15 @@ const staticProducts: Product[] = [
       name: "Immune Boosters"
     },
     categoryId: "immune-boosters",
-    manufacturer: "DONDOIL",
+    manufacturer: "DONDOOIL",
     inStock: 1,
     slug: "dondoil-200ml",
     rating: 4
   },
   {
     id: "3",
-    name: "DONDOIL - Family Pack",
-    title: "DONDOIL - Family Pack",
+    name: "DONDO0IL - Family Pack",
+    title: "DOND0OIL - Family Pack",
     price: 5000,
     description: "Perfect for the whole family",
     image: "images/dondooil.jpeg",      // Fixed image path
@@ -80,15 +80,15 @@ const staticProducts: Product[] = [
       name: "Immune Boosters"
     },
     categoryId: "immune-boosters",
-    manufacturer: "DONDOIL",
+    manufacturer: "DONDOOIL",
     inStock: 1,
     slug: "dondoil-family-pack",
     rating: 5
   },
   {
     id: "4",
-    name: "DONDOIL - Premium",
-    title: "DONDOIL - Premium",
+    name: "DONDOOIL - Premium",
+    title: "DONDOOIL - Premium",
     price: 250000,
     description: "Premium strength formula",
     image: "images/product-premium.png",      // Fixed image path
@@ -97,7 +97,7 @@ const staticProducts: Product[] = [
       name: "Immune Boosters"
     },
     categoryId: "immune-boosters",
-    manufacturer: "DONDOIL",
+    manufacturer: "DONDOOIL",
     inStock: 1,
     slug: "dondoil-premium",
     rating: 5

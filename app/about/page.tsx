@@ -4,8 +4,8 @@ import React from 'react';
 import { ChevronRight, Leaf, Shield, Heart, Award, MessageCircle } from 'lucide-react';
 
 export const metadata = {
-    title: 'About DONDOIL | Natural Health & Wellness Solutions',
-    description: 'Learn about DONDOIL&apos;s mission and our innovative Hosannaoil supplement for enhancing immunity and overall wellness.',
+    title: 'About DONDOOIL | Natural Health & Wellness Solutions',
+    description: 'Learn about DONDOOIL&apos;s mission and our innovative Hosannaoil supplement for enhancing immunity and overall wellness.',
   };
 
 const AboutPage = () => {
@@ -28,7 +28,7 @@ const AboutPage = () => {
               <Leaf className="w-8 h-8 text-green-600" />
             </div>
             <h1 className="text-5xl font-bold text-green-800 mb-6">
-              About DONDOIL
+              About DONDOOIL
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Bringing Originality to Natural Health Solutions
@@ -47,7 +47,7 @@ const AboutPage = () => {
                       Our Founder
                     </h2>
                     <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                      DONDOIL was founded by Dr. Dondo Emmanuel Shande, M.D., a Doctor of Herbal Remedy with specialty in immunology. Through intensive study of the human body and nature, Dr. Shande has pioneered innovative approaches to natural wellness solutions.
+                      DONDOOIL was founded by Dr. Dondo Emmanuel Shande, M.D., a Doctor of Herbal Remedy with specialty in immunology. Through intensive study of the human body and nature, Dr. Shande has pioneered innovative approaches to natural wellness solutions.
                     </p>
                     <p className="text-lg text-gray-700 leading-relaxed">
                       Based in Abuja, Nigeria, Dr. Shande combines his medical expertise with a passion for natural remedies to develop effective therapeutic products that bridge traditional wisdom with modern science.
@@ -66,12 +66,12 @@ const AboutPage = () => {
             <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 md:p-12">
               <h2 className="text-3xl font-semibold text-green-700 mb-6 flex items-center">
                 <Award className="w-8 h-8 mr-3 text-green-600" />
-                Our Flagship Product: DONDOIL
+                Our Flagship Product: DONDOOIL
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                  DONDOIL is our revolutionary Food Supplement and Immune Booster, scientifically developed to enhance the body&apos;s natural defense systems. This herbal remedy wonder has been rigorously tested and validated by respected institutions.
+                  DONDOOIL is our revolutionary Food Supplement and Immune Booster, scientifically developed to enhance the body&apos;s natural defense systems. This herbal remedy wonder has been rigorously tested and validated by respected institutions.
                   </p>
                   <div className="space-y-4">
                     <div className="flex items-center p-4 bg-white rounded-lg shadow-sm">
