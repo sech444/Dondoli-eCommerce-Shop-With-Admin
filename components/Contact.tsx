@@ -168,7 +168,7 @@ const Contact = () => {
                           scrolling="no" 
                           src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Suit 19, Anafaraa Plaza, Opp Oando Filling Station, 1st Avenue, Gwarimpa, Abuja&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                           style={{ border: 0 }}
-                          allowFullScreen=""
+                          allowFullScreen={true}
                           loading="lazy"
                           referrerPolicy="no-referrer-when-downgrade"
                         ></iframe>
