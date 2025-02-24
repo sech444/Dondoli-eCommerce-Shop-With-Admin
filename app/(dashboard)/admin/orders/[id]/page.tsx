@@ -354,7 +354,7 @@ const AdminSingleOrder = () => {
                 className="w-auto h-auto"
               />
               <div>
-                <Link href={`/product/${product?.product?.slug}`}>
+                <Link href={`/products/${product?.product?.slug}`}>
                   {product?.product?.title}
                 </Link>
                 <p>

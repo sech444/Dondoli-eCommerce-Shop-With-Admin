@@ -44,26 +44,25 @@ const HeaderTop = () => {
             </a>
             <a href="mailto:test@email.com" className="flex items-center gap-2 hover:text-green-200 transition-colors">
               <FaRegEnvelope className="text-lg" />
-              <span className="text-sm font-medium">test@email.com</span>
+              <span className="text-sm font-medium">info@dondooil.com</span>
             </a>
           </div>
 
-          {/* Social Media Icons */}
+         {/* Social Media Icons */}
           <div className="flex items-center gap-4 mt-2 lg:mt-0">
-            <a href="#" className="hover:text-green-200 transition-colors">
+            <a href="https://web.facebook.com/profile.php?id=61573731174557" className="hover:text-green-200 transition-colors">
               <FaFacebook className="text-lg" />
             </a>
-            <a href="#" className="hover:text-green-200 transition-colors">
+            <a href="https://x.com/dondooil" className="hover:text-green-200 transition-colors">
               <FaTwitter className="text-lg" />
             </a>
-            <a href="#" className="hover:text-green-200 transition-colors">
+            <a href="https://instagram.com/dondooil" className="hover:text-green-200 transition-colors">
               <FaInstagram className="text-lg" />
             </a>
-            <a href="#" className="hover:text-green-200 transition-colors">
+            <a href="https://linkedin.com/company/dondooil" className="hover:text-green-200 transition-colors">
               <FaLinkedin className="text-lg" />
             </a>
           </div>
-
           {/* User Session Info */}
           {session && (
             <div className="flex items-center justify-center lg:justify-end gap-4 mt-2 lg:mt-0">

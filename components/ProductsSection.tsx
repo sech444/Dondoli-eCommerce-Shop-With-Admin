@@ -40,8 +40,8 @@ const staticProducts: Product[] = [
     title: "DONDOOIL - 100ml",
     price: 20000,
     description: "Natural immune system booster",
-    image: "images/design-2.png",      // Fixed image path
-    mainImage: "images/design-2.png",  // Fixed image path
+    image: "images/design-2.jpeg",      // Fixed image path
+    mainImage: "images/design-2.jpeg",  // Fixed image path
     category: {
       name: "Immune Boosters"
     },
@@ -73,9 +73,9 @@ const staticProducts: Product[] = [
     name: "DONDO0IL - Family Pack",
     title: "DOND0OIL - Family Pack",
     price: 5000,
-    description: "Perfect for the whole family",
-    image: "images/dondooil.jpeg",      // Fixed image path
-    mainImage: "images/dondooil.jpeg",  // Fixed image path
+    description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
+    image: "images/dondooil.png",      // Fixed image path
+    mainImage: "images/dondooil.png",  // Fixed image path
     category: {
       name: "Immune Boosters"
     },
@@ -120,10 +120,10 @@ const ProductsSection = () => {
       <div className="max-w-screen-2xl mx-auto pt-10">
         <Heading title="FEATURED PRODUCTS" />
         <div className="grid grid-cols-4 justify-items-center max-w-screen-2xl mx-auto py-10 gap-x-2 px-10 gap-y-8 max-xl:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1">
-        {staticProducts.map((product) => (
+        {staticProducts.map((products) => (
         <ProductItem 
-          key={product.id}
-          product={product}
+          key={products.id}
+          product={products}
           color="blue"
         />
       ))}

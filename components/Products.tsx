@@ -1,75 +1,98 @@
-// *********************
-// Role of the component: Showing products on the shop page with applied filter and sort
-// Name of the component: Products.tsx
-// Developer: Aleksandar Kuzmanovic
-// Version: 1.0
-// Component call: <Products slug={slug} />
-// Input parameters: { slug }: any
-// Output: products grid
-// *********************
-
 import React from "react";
 import ProductItem from "./ProductItem";
 
-const Products = async ({ slug }: any) => {
-  // getting all data from URL slug and preparing everything for sending GET request
-  const inStockNum = slug?.searchParams?.inStock === "true" ? 1 : 0;
-  const outOfStockNum = slug?.searchParams?.outOfStock === "true" ? 1 : 0;
-  const page = slug?.searchParams?.page ? Number(slug?.searchParams?.page) : 1;
+const staticProducts = [
+  {
+    id: "1",
+    name: "DONDOOIL - 100ml",
+    title: "DONDOOIL - 100ml", // ✅ Add title
+    slug: "dondoil-100ml",
+    price: 20000,
+    description: "Natural immune system booster",
+    image: "/images/design-2.jpeg",
+    mainImage: "/images/design-2.jpeg",
+    category: { name: "Immune Boosters" },
+    categoryId: "immune-boosters",
+    manufacturer: "DONDOOIL",
+    inStock: 1,
+    rating: 5,
+  },
+  {
+    id: "2",
+    name: "DONDOOIL - 200ml",
+    title: "DONDOOIL - 200ml", // ✅ Add title
+    slug: "dondoil-200ml",
+    price: 18500,
+    description: "Enhanced formula for maximum immunity",
+    image: "/images/dosage.png",
+    mainImage: "/images/dosage.png",
+    category: { name: "Immune Boosters" },
+    categoryId: "immune-boosters",
+    manufacturer: "DONDOOIL",
+    inStock: 1,
+    rating: 4,
+  },
+  {
+    id: "3",
+    name: "DONDOOIL - Family Pack",
+    title: "DONDOOIL - Family Pack", // ✅ Add title
+    slug: "dondoil-family-pack",
+    price: 5000,
+    description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
+    image: "/images/dondooil.png",
+    mainImage: "/images/dondooil.png",
+    category: { name: "Immune Boosters" },
+    categoryId: "immune-boosters",
+    manufacturer: "DONDOOIL",
+    inStock: 1,
+    rating: 5,
+  },
+  {
+    id: "4",
+    name: "DONDOOIL - Premium",
+    title: "DONDOOIL - Premium", // ✅ Add title
+    slug: "dondoil-premium",
+    price: 250000,
+    description: "Premium strength formula",
+    image: "/images/product-premium.png",
+    mainImage: "/images/product-premium.png",
+    category: { name: "Immune Boosters" },
+    categoryId: "immune-boosters",
+    manufacturer: "DONDOOIL",
+    inStock: 1,
+    rating: 5,
+  },
+];
 
-  let stockMode: string = "lte";
-  
-  // preparing inStock and out of stock filter for GET request
-  // If in stock checkbox is checked, stockMode is "equals"
-  if (inStockNum === 1) {
-    stockMode = "equals";
-  }
- // If out of stock checkbox is checked, stockMode is "lt"
-  if (outOfStockNum === 1) {
-    stockMode = "lt";
-  }
-   // If in stock and out of stock checkboxes are checked, stockMode is "lte"
-  if (inStockNum === 1 && outOfStockNum === 1) {
-    stockMode = "lte";
-  }
-   // If in stock and out of stock checkboxes aren't checked, stockMode is "gt"
-  if (inStockNum === 0 && outOfStockNum === 0) {
-    stockMode = "gt";
-  }
 
-  // sending API request with filtering, sorting and pagination for getting all products
-  const data = await fetch(
-    `http://localhost:3001/api/products?filters[price][$lte]=${
-      slug?.searchParams?.price || 3000
-    }&filters[rating][$gte]=${
-      Number(slug?.searchParams?.rating) || 0
-    }&filters[inStock][$${stockMode}]=1&${
-      slug?.params?.slug?.length > 0
-        ? `filters[category][$equals]=${slug?.params?.slug}&`
-        : ""
-    }sort=${slug?.searchParams?.sort}&page=${page}`
-  );
+const Products = ({ searchParams }: { searchParams?: { [key: string]: string } }) => {
+  // Get filter parameters
+  const inStockFilter = searchParams?.inStock === "true";
+  const outOfStockFilter = searchParams?.outOfStock === "true";
+  const maxPrice = Number(searchParams?.price) || 300000;
+  const minRating = Number(searchParams?.rating) || 0;
 
-  const products = await data.json();
+  // Filter products based on static data
+  let filteredProducts = staticProducts.filter((product) => {
+    const matchesStock =
+      (inStockFilter && product.inStock) ||
+      (outOfStockFilter && !product.inStock) ||
+      (!inStockFilter && !outOfStockFilter);
 
-  /*
-    const req = await fetch(
-    `http://localhost:1337/api/products?populate=*&filters[price][$lte]=${
-      searchParams?.price || 1000
-    }${searchParams.women === "true" ? "&filters[category][$eq]=women" : ""}${searchParams.womenNewEdition === "true" ? "&filters[category][$eq]=women%20new%20edition" : ""}&filters[rating][$gte]=${
-      searchParams?.rating || 1
-    }`
-  );
-  const products = await req.json();
-  */
+    const matchesPrice = product.price <= maxPrice;
+    const matchesRating = product.rating >= minRating;
+
+    return matchesStock && matchesPrice && matchesRating;
+  });
+
   return (
-    <div className="grid grid-cols-3 justify-items-center gap-x-2 gap-y-5 max-[1300px]:grid-cols-3 max-lg:grid-cols-2 max-[500px]:grid-cols-1">
-      {products.length > 0 ? (
-        products.map((product: Product) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map((product) => (
           <ProductItem key={product.id} product={product} color="black" />
         ))
       ) : (
-        <h3 className="text-3xl mt-5 text-center w-full col-span-full max-[1000px]:text-2xl max-[500px]:text-lg">
+        <h3 className="text-3xl mt-5 text-center w-full col-span-full">
           No products found for specified query
         </h3>
       )}

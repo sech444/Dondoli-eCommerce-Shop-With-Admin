@@ -21,8 +21,8 @@ const ProductItem = ({
   color: string;
 }) => {
   return (
-    <div className="flex flex-col items-center gap-y-2">
-      <Link href={`/product/${product.slug}`}>
+    <div className="flex flex-col items-center pt-20">
+      <Link href={`/products/${product.slug}`}>
         <Image
           src={
             product.mainImage
@@ -37,7 +37,7 @@ const ProductItem = ({
         />
       </Link>
       <Link
-        href={`/product/${product.slug}`}
+        href={`/products/${product.slug}`}
         className={
           color === "black"
             ? `text-xl text-black font-normal mt-2 uppercase`
@@ -58,7 +58,7 @@ const ProductItem = ({
 
       <ProductItemRating productRating={product?.rating} />
       <Link
-        href={`/product/${product?.slug}`}
+        href={`/products/${product?.slug}`}
         className="block flex justify-center items-center w-full uppercase text-orange-400 px-0 py-2 text-base border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
       >
         <p>View product</p>

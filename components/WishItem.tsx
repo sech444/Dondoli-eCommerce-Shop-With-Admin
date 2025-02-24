@@ -38,7 +38,7 @@ const WishItem = ({
   const [userId, setUserId] = useState<string>();
 
   const openProduct = (slug: string): void => {
-    router.push(`/product/${slug}`);
+    router.push(`/products/${slug}`);
   };
 
   const getUserByEmail = async () => {

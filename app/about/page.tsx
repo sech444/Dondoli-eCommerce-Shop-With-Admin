@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ChevronRight, Leaf, Shield, Heart, Award, MessageCircle } from 'lucide-react';
+import SEOHeader from '@/components/SEOHeader';
 
 export const metadata = {
     title: 'About DONDOOIL | Natural Health & Wellness Solutions',
@@ -34,7 +35,7 @@ const AboutPage = () => {
               Bringing Originality to Natural Health Solutions
             </p>
           </div>
-
+          <SEOHeader />
           {/* Rest of the content remains the same */}
           {/* Founder Section */}
           <div className="mb-20">
@@ -151,7 +152,7 @@ const AboutPage = () => {
                 1st Avenue, Gwarimpa, Abuja
               </p>
               <p className="text-lg text-gray-700 mb-8">
-                Email: dondoorigin@gmail.com<br />
+                Email: info@dondooil.com<br />
                 Tel: +234 8033367384 | +234 0874747449
               </p>
               <button className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
