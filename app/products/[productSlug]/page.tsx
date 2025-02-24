@@ -7,8 +7,8 @@ import { FaSquareFacebook, FaSquareXTwitter, FaSquarePinterest } from "react-ico
 const staticProducts = [
   {
     id: "1",
-    name: "DONDOOIL - 100ml",
-    title: "DONDOOIL - 100ml", // ✅ Add title
+    name: "DONDOOIL",
+    title: "DONDOOIL",
     slug: "dondoil-100ml",
     price: 20000,
     description: "Natural immune system booster",
@@ -23,7 +23,7 @@ const staticProducts = [
   {
     id: "2",
     name: "DONDOOIL - 200ml",
-    title: "DONDOOIL - 200ml", // ✅ Add title
+    title: "DONDOOIL - 200ml",
     slug: "dondoil-200ml",
     price: 18500,
     description: "Enhanced formula for maximum immunity",
@@ -38,7 +38,7 @@ const staticProducts = [
   {
     id: "3",
     name: "DONDOOIL - Family Pack",
-    title: "DONDOOIL - Family Pack", // ✅ Add title
+    title: "DONDOOIL - Family Pack",
     slug: "dondoil-family-pack",
     price: 5000,
     description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
@@ -53,7 +53,7 @@ const staticProducts = [
   {
     id: "4",
     name: "DONDOOIL - Premium",
-    title: "DONDOOIL - Premium", // ✅ Add title
+    title: "DONDOOIL - Premium",
     slug: "dondoil-premium",
     price: 250000,
     description: "Premium strength formula",
@@ -66,6 +66,7 @@ const staticProducts = [
     rating: 5,
   },
 ];
+
 
 // ✅ Generate metadata dynamically
 export async function generateMetadata({ params }: { params: { productSlug: string } }): Promise<Metadata> {
