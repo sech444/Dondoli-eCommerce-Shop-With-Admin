@@ -1,9 +1,10 @@
-// types.ts
 export interface Product {
   id: string;
-  title: string;
   name: string;
+  title: string;
+  slug: string;
   price: number;
+  originalPrice?: number; // Added this field for discount display
   description: string;
   image: string;
   mainImage: string;
@@ -12,7 +13,6 @@ export interface Product {
   };
   categoryId: string;
   manufacturer: string;
-  inStock: number;  // Changed from boolean to number
-  slug: string;
+  inStock: number;
   rating: number;
 }

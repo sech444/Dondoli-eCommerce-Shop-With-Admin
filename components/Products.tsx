@@ -110,11 +110,11 @@ import ProductItem from "./ProductItem";
 const staticProducts = [
   {
     id: "1",
-    name: "DONDOOIL",
-    title: "DONDOOIL",
+    name: "DONDOOIL - Family Pack",
+    title: "DONDOOIL - Family Pack",
     slug: "dondoil-100ml",
-    price: 20000,
-    description: "Natural immune system booster",
+    price: 40000,
+    description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
     image: "/images/design-2.jpeg",
     mainImage: "/images/design-2.jpeg",
     category: { name: "Immune Boosters" },
@@ -140,8 +140,8 @@ const staticProducts = [
   },
   {
     id: "3",
-    name: "DONDOOIL - Family Pack",
-    title: "DONDOOIL - Family Pack",
+    name: "DONDOOIL ",
+    title: "DONDOOIL",
     slug: "dondoil-family-pack",
     price: 5000,
     description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
