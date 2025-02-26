@@ -34,11 +34,12 @@ import Image from "next/image";
 const staticProducts = [
     {
       id: "1",
-      name: "DONDOOIL",
-      title: "DONDOOIL",
+      name: "DONDOOIL - Family Pack",
+      title: "DONDOOIL - Family Pack",
       slug: "dondoil-100ml",
-      price: 20000,
-      description: "Natural immune system booster",
+      price: 35000,
+      originalPrice: 40000, // Original price before discount
+      description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
       image: "/images/design-2.jpeg",
       mainImage: "/images/design-2.jpeg",
       category: { name: "Immune Boosters" },
@@ -53,9 +54,10 @@ const staticProducts = [
       title: "DONDOOIL - 200ml",
       slug: "dondoil-200ml",
       price: 18500,
+      originalPrice: 20000,
       description: "Enhanced formula for maximum immunity",
       image: "/images/dosage.png",
-      mainImage: "images/dosage.png",
+      mainImage: "/images/dosage.png",
       category: { name: "Immune Boosters" },
       categoryId: "immune-boosters",
       manufacturer: "DONDOOIL",
@@ -64,13 +66,14 @@ const staticProducts = [
     },
     {
       id: "3",
-      name: "DONDOOIL - Family Pack",
-      title: "DONDOOIL - Family Pack",
+      name: "DONDOOIL ",
+      title: "DONDOOIL",
       slug: "dondoil-family-pack",
-      price: 5000,
+      price: 8000,
+      originalPrice: 10000,
       description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
       image: "/images/dondooil.png",
-      mainImage: "images/dondooil.png",
+      mainImage: "/images/dondooil.png",
       category: { name: "Immune Boosters" },
       categoryId: "immune-boosters",
       manufacturer: "DONDOOIL",
@@ -82,17 +85,19 @@ const staticProducts = [
       name: "DONDOOIL - Premium",
       title: "DONDOOIL - Premium",
       slug: "dondoil-premium",
-      price: 250000,
+      price: 25000,
+      originalPrice: 30000,
       description: "Premium strength formula",
-      image: "/images/product-premium.png",
-      mainImage: "images/product-premium.png",
+      image: "/images/product-premium.jpeg",
+      mainImage: "/images/product-premium.jpeg",
       category: { name: "Immune Boosters" },
       categoryId: "immune-boosters",
       manufacturer: "DONDOOIL",
       inStock: 1,
       rating: 5,
     },
-  ];
+   ];
+   
   
 
 export const metadata: Metadata = {
