@@ -1,0 +1,33 @@
+# robots.txt for DONDOOIL website
+User-agent: *
+Allow: /
+
+# Block access to admin areas
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /dashboard/
+
+# Block access to development/staging areas
+Disallow: /dev/
+Disallow: /staging/
+Disallow: /test/
+
+# Block certain file types
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.xls$
+
+# Allow access to CSS, JS, and images
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.svg$
+
+# Set crawl delay for all bots (in seconds)
+Crawl-delay: 10
+
+# Sitemap location
+Sitemap: https://dondooil.com/sitemap.xml
