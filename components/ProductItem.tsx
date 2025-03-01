@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Product } from "../lib/types";
+import AddToCartSingleProductBtn from "./AddToCartSingleProductBtn";
 
 interface ProductItemProps {
   product: Product;
@@ -73,7 +74,9 @@ const ProductItem = ({ product, color }: ProductItemProps) => {
         <p>View product</p>
       </Link>
         <button className={`w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-${color}-700 transition-colors`}>
-          Add to Cart
+           {/* ✅ Replace with dynamic button */}
+           <AddToCartSingleProductBtn product={product} quantityCount={1} />
+             
         </button>
       </div>
     </div>
