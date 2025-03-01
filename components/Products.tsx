@@ -1,6 +1,7 @@
 
 import React from "react";
 import ProductItem from "./ProductItem";
+import { useSortStore } from "@/app/_zustand/sortStore";
 
 const staticProducts = [
   {
@@ -125,3 +126,55 @@ const Products = ({
 };
 
 export default Products;
+
+// const Products = ({
+//   slug,
+//   searchParams
+// }: {
+//   slug?: string[];
+//   searchParams?: { [key: string]: string }
+// }) => {
+//   // Get sort value from Zustand store
+//   const { sortBy } = useSortStore();
+  
+//   // Filter products based on parameters
+//   let filteredProducts = staticProducts.filter((product) => {
+//     // Your existing filter logic
+//     const inStockFilter = searchParams?.inStock === "true";
+//     const outOfStockFilter = searchParams?.outOfStock === "true";
+//     const maxPrice = Number(searchParams?.price) || 300000;
+//     const minRating = Number(searchParams?.rating) || 0;
+//     const categoryFilter = searchParams?.category || "";
+//     const matchesSlug = !slug || slug.length === 0 || product.slug === slug[0];
+    
+//     return matchesStock && matchesPrice && matchesRating && matchesCategory && matchesSlug && matchesSlug;
+//   });
+  
+//   // Sort products based on sortBy value
+//   if (sortBy === "titleAsc") {
+//     filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+//   } else if (sortBy === "titleDesc") {
+//     filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+//   } else if (sortBy === "lowPrice") {
+//     filteredProducts.sort((a, b) => a.price - b.price);
+//   } else if (sortBy === "highPrice") {
+//     filteredProducts.sort((a, b) => b.price - a.price);
+//   }
+//   // defaultSort uses the original order
+
+//   return (
+//     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
+//       {filteredProducts.length > 0 ? (
+//         filteredProducts.map((product) => (
+//           <ProductItem key={product.id} product={product} color="black" />
+//         ))
+//       ) : (
+//         <h3 className="text-3xl mt-5 text-center w-full col-span-full">
+//           No products found for specified query
+//         </h3>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Products;

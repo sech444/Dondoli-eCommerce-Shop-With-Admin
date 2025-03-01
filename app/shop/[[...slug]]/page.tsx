@@ -40,7 +40,7 @@ const ShopPage = (slug: any) => {
               <SortBy />
             </div>
             <div className="divider"></div>
-            <Products slug={slug} />
+            <Products slug={slug?.params?.slug} />
             <Pagination />
           </div>
         </div>
