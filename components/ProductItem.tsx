@@ -60,8 +60,14 @@ const ProductItem = ({ product, color }: ProductItemProps) => {
             ₦{price.toLocaleString()}
           </span>
         </div>
-          <Link
+          {/* <Link
         href={`/products/${product?.slug}`}
+        className="block flex justify-center items-center w-full uppercase text-orange-400 px-0 py-2 text-base border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
+      >
+        <p>View product</p>
+      </Link> */}
+      <Link
+        href={`/products/${slug}`}
         className="block flex justify-center items-center w-full uppercase text-orange-400 px-0 py-2 text-base border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
       >
         <p>View product</p>
