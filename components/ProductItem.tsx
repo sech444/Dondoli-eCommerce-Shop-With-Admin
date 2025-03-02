@@ -21,7 +21,7 @@ const ProductItem = ({ product, color }: ProductItemProps) => {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden max-w-xs w-full transition-transform duration-300 hover:scale-105">
       <div className="relative">
-        <Link href={`/products/${slug}`}>
+        <Link href={`/shop/${slug}`}>
           <div className="relative h-96 w-full"> {/* Changed from h-64 to h-72 for more height */}
             <Image
               src={image}
@@ -68,7 +68,7 @@ const ProductItem = ({ product, color }: ProductItemProps) => {
         <p>View product</p>
       </Link> */}
       <Link
-        href={`/products/${slug}`}
+        href={`/shop/${slug}`}
         className="block flex justify-center items-center w-full uppercase text-orange-400 px-0 py-2 text-base border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
       >
         <p>View product</p>
