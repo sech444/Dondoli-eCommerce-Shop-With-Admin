@@ -11,9 +11,10 @@
 //   );
 // }
 
-
+// app/page.tsx
 
 import { CategoryMenu, Hero, IntroducingSection, ProductsSection } from "@/components";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
         {/* <IntroducingSection />
         <CategoryMenu /> */}
         <ProductsSection />
+        <Testimonials />
       </div>
     </main>
   );

@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import AddToCartSingleProductBtn from "@/components/AddToCartSingleProductBtn";
 import { FaSquareFacebook, FaSquareXTwitter, FaSquarePinterest } from "react-icons/fa6";
+// Enable dynamic rendering for this route
+export const dynamicParams = true;
 
 const staticProducts = [
   {
