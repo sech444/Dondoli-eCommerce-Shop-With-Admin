@@ -5,6 +5,7 @@ import { Footer, Header } from "@/components";
 import SessionProvider from "@/utils/SessionProvider";
 import Providers from "@/Providers";
 import { getServerSession } from "next-auth";
+import { Analytics } from "@vercel/analytics/react";
 import 'svgmap/dist/svgMap.min.css';
 
 const inter = Inter({ subsets: ["latin"] });
@@ -56,6 +57,7 @@ export default async function RootLayout({
           <Header />
           <Providers>
             {children}
+            <Analytics />
           </Providers>
           <Footer />
         </SessionProvider>
