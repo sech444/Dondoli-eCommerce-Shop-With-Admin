@@ -55,7 +55,7 @@ const SEOHeader: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 py-8">
         {/* Primary SEO Heading */}
         <h1 className="text-4xl font-bold text-green-800 mb-6">
-          DONDOIL: Natural Wellness & Immune Support Supplement
+          DONDOOIL: Natural Wellness & Immune Support Supplement
         </h1>
         
         {/* Rich Content Section */}
@@ -69,7 +69,7 @@ const SEOHeader: React.FC = () => {
                 Enhancing Immunity to Fight Diseases Naturally
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Experience DONDOIL, a premium natural dietary supplement that combines traditional herbal wisdom with modern wellness support. Our NAFDAC-approved formula (NO. A7-102209L) provides comprehensive support for your body's natural immune function and overall wellbeing.
+                Experience DONDOOIL, a premium natural dietary supplement that combines traditional herbal wisdom with modern wellness support. Our NAFDAC-approved formula (NO. A7-102209L) provides comprehensive support for your body's natural immune function and overall wellbeing.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
                 <ul className="space-y-2">
