@@ -26,17 +26,17 @@ const SEOHeader: React.FC = () => {
   const productSchema: ProductSchema = {
     '@context': 'https://schema.org/',
     '@type': 'Product',
-    'name': 'DONDOIL Natural Wellness Supplement',
+    'name': 'DONDOOIL Natural Wellness Supplement',
     'description': 'Premium natural dietary supplement for holistic wellness and immune system support. NAFDAC-approved herbal formula combining traditional wisdom with modern health support.',
     'brand': {
       '@type': 'Brand',
-      'name': 'DONDOIL'
+      'name': 'DONDOOIL'
     },
     'offers': {
       '@type': 'Offer',
       'availability': 'https://schema.org/InStock'
     },
-    'url': `${baseUrl}/products/dondoil-natural-supplement`,
+    'url': `${baseUrl}/products/dondooil-natural-supplement`,
     'image': [
       `${baseUrl}/product-image.jpg`,
       `${baseUrl}/product-image-2.jpg`

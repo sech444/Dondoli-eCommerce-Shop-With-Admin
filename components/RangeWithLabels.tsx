@@ -34,11 +34,11 @@ const RangeWithLabels = () => {
         step="200"
       />
       <div className="w-full flex justify-between text-xs px-2">
-        <span>$0</span>
-        <span>$200</span>
-        <span>$400</span>
-        <span>$600</span>
-        <span>$4000</span>
+        <span> ₦2000</span>
+        <span> ₦3000</span>
+        <span> ₦4000</span>
+        <span> ₦6000</span>
+        <span> ₦40000</span>
       </div>
     </div>
   );
