@@ -108,73 +108,9 @@ import React from "react";
 import ProductItem from "./ProductItem";
 import { Product } from "../lib/types";
 import Heading from "./Heading";
+import { staticProducts, getProductBySlug } from "@/app/_data/products";
 
-const staticProducts = [
- {
-   id: "1",
-   name: "DONDOOIL - Family Pack",
-   title: "DONDOOIL - Family Pack",
-   slug: "dondoil-100ml",
-   price: 35000,
-   originalPrice: 40000, // Original price before discount
-   description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
-   image: "/images/design-2.jpeg",
-   mainImage: "/images/design-2.jpeg",
-   category: { name: "Immune Boosters" },
-   categoryId: "immune-boosters",
-   manufacturer: "DONDOOIL",
-   inStock: 1,
-   rating: 5,
- },
- {
-   id: "2",
-   name: "DONDOOIL - 200ml",
-   title: "DONDOOIL - 200ml",
-   slug: "dondoil-200ml",
-   price: 18500,
-   originalPrice: 20000,
-   description: "Enhanced formula for maximum immunity",
-   image: "/images/dosage.png",
-   mainImage: "/images/dosage.png",
-   category: { name: "Immune Boosters" },
-   categoryId: "immune-boosters",
-   manufacturer: "DONDOOIL",
-   inStock: 1,
-   rating: 4,
- },
- {
-   id: "3",
-   name: "DONDOOIL ",
-   title: "DONDOOIL",
-   slug: "dondoil-family-pack",
-   price: 8000,
-   originalPrice: 10000,
-   description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
-   image: "/images/dondooil.jpeg",
-   mainImage: "/images/dondooil.jpeg",
-   category: { name: "Immune Boosters" },
-   categoryId: "immune-boosters",
-   manufacturer: "DONDOOIL",
-   inStock: 1,
-   rating: 5,
- },
- {
-   id: "4",
-   name: "DONDOOIL - Premium",
-   title: "DONDOOIL - Premium",
-   slug: "dondoil-premium",
-   price: 25000,
-   originalPrice: 30000,
-   description: "Premium strength formula",
-   image: "/images/product-premium.jpeg",
-   mainImage: "/images/product-premium.jpeg",
-   category: { name: "Immune Boosters" },
-   categoryId: "immune-boosters",
-   manufacturer: "DONDOOIL",
-   inStock: 1,
-   rating: 5,
- },
-];
+
 
 const ProductsSection = () => {
   return (
