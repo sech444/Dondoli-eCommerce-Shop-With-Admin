@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' }, // SVG version for modern browsers
-      { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' }, // Fallback PNG
-      { url: '/favicon-192.png', sizes: '192x192', type: 'image/png' }, // For Android
+      { url: '/favicon.svg', sizes: '32x32', type: 'image/svg+xml' }, // Fallback PNG
+      { url: '/favicon.svg', sizes: '192x192', type: 'image/svg+xml' }, // For Android
     ],
     apple: [
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' }, // For iOS
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/svg+xml' }, // For iOS
     ],
   },
   openGraph: {

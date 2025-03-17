@@ -1,5 +1,23 @@
 // app/_data/products.ts
 export const  staticProducts = [
+
+
+  {
+    id: "3",
+    name: "DONDOOIL ",
+    title: "DONDOOIL",
+    slug: "dondooil-family-pack",
+    price: 8000,
+    originalPrice: 10000,
+    description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
+    image: "/images/dondooil.jpeg",
+    mainImage: "/images/dondooil.jpeg",
+    category: { name: "Immune Boosters" },
+    categoryId: "immune-boosters",
+    manufacturer: "DONDOOIL",
+    inStock: 1,
+    rating: 5,
+  },
     {
       id: "1",
       name: "DONDOOIL - Family Pack",
@@ -32,22 +50,7 @@ export const  staticProducts = [
       inStock: 1,
       rating: 4,
     },
-    {
-      id: "3",
-      name: "DONDOOIL ",
-      title: "DONDOOIL",
-      slug: "dondooil-family-pack",
-      price: 8000,
-      originalPrice: 10000,
-      description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
-      image: "/images/dondooil.jpeg",
-      mainImage: "/images/dondooil.jpeg",
-      category: { name: "Immune Boosters" },
-      categoryId: "immune-boosters",
-      manufacturer: "DONDOOIL",
-      inStock: 1,
-      rating: 5,
-    },
+    
     {
       id: "4",
       name: "DONDOOIL - Premium",
