@@ -17,16 +17,28 @@ const ProductItem = ({ product, color }: ProductItemProps) => {
   const discountPercentage = hasDiscount
     ? Math.round(((originalPrice - price) / originalPrice) * 100)
     : 0;
-    
+
+    // Function to get custom height for each product
+    const getImageHeight = (productId: string) => {
+      switch(productId) {
+        case "1": return "h-64"; // Family Pack - tallest
+        case "2": return "h-96 w-full"; // 200ml - medium-tall
+        case "3": return "h-72"; // Regular - default height
+        case "4": return "h-88"; // Premium - between tall and medium
+        default: return "h-72"; // Default
+      }
+    }
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden max-w-xs w-full transition-transform duration-300 hover:scale-105">
       <div className="relative">
         <Link href={`/products/${product?.slug}`}>
-          <div className="relative h-96 w-full"> {/* Changed from h-64 to h-72 for more height */}
+          <div className={`relative h-96 w-full${getImageHeight(id)}`}> 
             <Image
               src={image}
               alt={name}
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               style={{ objectFit: 'cover' }}
               className="transition-opacity duration-300 hover:opacity-90"
             />
