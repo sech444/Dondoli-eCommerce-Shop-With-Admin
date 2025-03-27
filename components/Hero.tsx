@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -30,12 +31,12 @@ const Hero = () => {
             defense systems and promote overall wellbeing.
           </p>
           <div className="flex gap-x-4 justify-center max-lg:flex-col max-lg:gap-y-4">
-            <button className="bg-green-600 text-white font-bold px-12 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+            <Link href="/products" className="bg-green-600 text-white font-bold px-12 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg inline-block text-center">
               BUY NOW
-            </button>
-            <button className="bg-white text-green-600 font-bold px-12 py-3 rounded-lg border-2 border-green-600 hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg">
+            </Link>
+            <Link href="/news" className="bg-white text-green-600 font-bold px-12 py-3 rounded-lg border-2 border-green-600 hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg inline-block text-center">
               LEARN MORE
-            </button>
+            </Link>
           </div>
         </div>
         
