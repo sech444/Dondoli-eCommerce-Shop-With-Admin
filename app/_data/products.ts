@@ -7,7 +7,7 @@ export const  staticProducts = [
     name: "DONDOOIL ",
     title: "DONDOOIL",
     slug: "dondooil-family-pack",
-    price: 8000,
+    price: 9000,
     originalPrice: 10000,
     description: "Holistic healing organic stem cell dietary supplement, an immune booster that boost the immune system from the myeloid and lymphoid progenitor (bone marrow)",
     image: "/images/dondooil.jpeg",
