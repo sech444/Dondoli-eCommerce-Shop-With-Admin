@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -38,6 +38,7 @@ model Image {
 model User {
   id       String     @id @default(uuid())
   email    String     @unique
+  name      String?
   password String?
   role     String?    @default("user")
   Wishlist Wishlist[]
