@@ -7,11 +7,19 @@ export default function LandingModal({ open, onClose }: { open: boolean; onClose
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="bg-white rounded-2xl shadow-xl p-8 max-w-2xl w-full flex flex-col items-center relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-1 sm:px-2">
+      <div className="bg-white rounded-2xl shadow-xl p-2 xs:p-4 sm:p-8 w-full max-w-xs xs:max-w-sm sm:max-w-md md:max-w-2xl flex flex-col items-center relative overflow-y-auto max-h-[90dvh] sm:max-h-[95vh]">
+        {/* Close button: top right on desktop, bottom center on mobile */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-green-700 text-2xl font-bold"
+          className="block sm:hidden mt-4 mb-2 mx-auto text-gray-400 hover:text-green-700 text-2xl font-bold z-10"
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <button
+          onClick={onClose}
+          className="hidden sm:block absolute top-4 right-4 text-gray-400 hover:text-green-700 text-2xl font-bold z-10"
           aria-label="Close"
         >
           &times;
@@ -19,35 +27,37 @@ export default function LandingModal({ open, onClose }: { open: boolean; onClose
         <Image
           src="/dondooil-logo.jpeg"
           alt="DONDOOIL Natural Wellness Supplement"
-          width={180}
-          height={180}
-          className="rounded-lg shadow-lg mb-6"
+          width={80}
+          height={80}
+          className="rounded-lg shadow-lg mb-3 sm:mb-6 w-16 h-16 xs:w-24 xs:h-24 sm:w-36 sm:h-36 object-cover"
           priority
         />
-        <h1 className="text-4xl font-bold text-green-800 mb-4 text-center">
+        <h1 className="text-base xs:text-lg sm:text-2xl md:text-4xl font-bold text-green-800 mb-1 sm:mb-4 text-center">
           DONDOOIL Natural Wellness Supplement
         </h1>
-        <p className="text-lg text-gray-700 mb-4 text-center">
-          <strong>Boost your immune system</strong> and support your overall health with <strong>DONDOOIL</strong> – the leading <strong>natural supplement</strong> and <strong>immune booster</strong> in Nigeria. Our <strong>NAFDAC-approved</strong> formula combines <strong>organic stem cell nutrition</strong> and <strong>herbal remedies</strong> for holistic wellness.
+        <p className="text-xs xs:text-sm sm:text-base md:text-lg text-gray-700 mb-2 sm:mb-4 text-center">
+          <strong>Boost your immune system</strong> and support your overall health with <strong>DONDOOIL</strong> – the leading{" "}
+          <strong>natural supplement</strong> and <strong>immune booster</strong> in Nigeria. Our <strong>NAFDAC-approved</strong> formula combines{" "}
+          <strong>organic stem cell nutrition</strong> and <strong>herbal remedies</strong> for holistic wellness.
         </p>
-        <ul className="text-green-700 mb-6 list-disc list-inside text-base">
+        <ul className="text-green-700 mb-3 sm:mb-6 list-disc list-inside text-xs xs:text-sm sm:text-base">
           <li>NAFDAC Approved: NO. A7-102209L</li>
           <li>100% Organic & Herbal</li>
           <li>Supports Immune, Respiratory, and Digestive Health</li>
           <li>Scientifically Validated & Quality-Tested</li>
           <li>Trusted by Health Professionals</li>
         </ul>
-        <div className="flex flex-col items-center gap-4 w-full">
+        <div className="flex flex-col items-center gap-2 sm:gap-4 w-full">
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=I%20want%20to%20buy%20Dondooil%20stem%20cell%20dietary%20supplements/immune%20booster`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full md:w-auto bg-green-600 text-white font-bold px-8 py-4 rounded-lg text-xl shadow-lg hover:bg-green-700 transition-all duration-300 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto bg-green-600 text-white font-bold px-3 sm:px-8 py-2 sm:py-4 rounded-lg text-sm sm:text-xl shadow-lg hover:bg-green-700 transition-all duration-300 flex items-center justify-center gap-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width={28}
-              height={28}
+              width={20}
+              height={20}
               fill="currentColor"
               viewBox="0 0 24 24"
               className="mr-2"
@@ -56,11 +66,11 @@ export default function LandingModal({ open, onClose }: { open: boolean; onClose
             </svg>
             Buy Now on WhatsApp
           </a>
-          <span className="text-gray-600 text-sm">Fast, direct order via WhatsApp</span>
+          <span className="text-gray-600 text-xs sm:text-sm">Fast, direct order via WhatsApp</span>
         </div>
-        <div className="mt-8 text-center text-gray-500 text-xs">
+        <div className="mt-4 sm:mt-8 text-center text-gray-500 text-[10px] xs:text-xs sm:text-xs">
           <p>
-          DONDOOIL, natural supplement, immune booster, NAFDAC approved, organic, herbal remedy, stem cell nutrition, holistic wellness, buy supplement Nigeria, immune system support, health product, wellness supplement, buy DONDOOIL online, Abuja, Nigeria
+            DONDOOIL, natural supplement, immune booster, NAFDAC approved, organic, herbal remedy, stem cell nutrition, holistic wellness, buy supplement Nigeria, immune system support, health product, wellness supplement, buy DONDOOIL online, Abuja, Nigeria
           </p>
         </div>
       </div>
