@@ -50,50 +50,63 @@
 // app/_data/products.ts
 
 const getBaseUrlForFrontendFetch = () => {
+  // Local development URL
   if (process.env.NODE_ENV === 'development') {
     return 'http://localhost:3000';
   }
 
-  // Get the Vercel URL from environment variables
-  // VERCEL_URL is set automatically by Vercel and includes the protocol (e.g., https://your-app.vercel.app)
-  // NEXT_PUBLIC_VERCEL_URL is the client-side exposed version of VERCEL_URL.
-  let baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.VERCEL_URL;
+  // Production URL strategy for Vercel
+  let vercelUrl = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.VERCEL_URL;
 
-  // Fallback if Vercel environment variables are not available for some reason (e.g., local build for prod)
-  if (!baseUrl) {
-    baseUrl = 'dondoli-ecommerce-shop.vercel.app'; // This is the base domain without protocol
+  // Fallback to a hardcoded URL if environment variables are not present.
+  // This should ideally not happen in Vercel production, but provides robustness.
+  if (!vercelUrl) {
+    console.warn("VERCEL_URL or NEXT_PUBLIC_VERCEL_URL not found. Falling back to hardcoded production URL.");
+    vercelUrl = 'dondoli-ecommerce-shop.vercel.app'; // This should be your base Vercel domain
   }
 
-  // Ensure the URL always has a protocol
-  if (!baseUrl.startsWith('http://') && !baseUrl.startsWith('https://')) {
-    baseUrl = `https://${baseUrl}`; // Prepend https:// if it's missing
+  // Ensure the URL always starts with a protocol (http:// or https://)
+  // Vercel typically provides VERCEL_URL with https://, but this adds a safety net.
+  if (!vercelUrl.startsWith('http://') && !vercelUrl.startsWith('https://')) {
+    vercelUrl = `https://${vercelUrl}`;
   }
 
-  return baseUrl;
+  return vercelUrl;
 };
 
 export const getAllProducts = async () => {
   const url = `${getBaseUrlForFrontendFetch()}/api/products`;
   console.log("Fetching products via Next.js API route from URL:", url);
 
-  const res = await fetch(url, {
-    next: { revalidate: 3600 } // Revalidate data every hour
-  });
+  try {
+    const res = await fetch(url, {
+      next: { revalidate: 3600 } // Revalidate data every hour
+    });
 
-  if (!res.ok) {
-    console.error(`Failed to fetch products from proxy: ${res.status} - ${res.statusText}`);
-    throw new Error(`Failed to fetch products from proxy: ${res.status}`);
+    if (!res.ok) {
+      const errorText = await res.text(); // Get raw error message from response
+      console.error(`Failed to fetch products from proxy: ${res.status} - ${res.statusText}. Details: ${errorText}`);
+      throw new Error(`Failed to fetch products from proxy: ${res.status} - ${res.statusText}`);
+    }
+    return res.json();
+  } catch (error) {
+    console.error("Error in getAllProducts fetch:", error);
+    // Re-throw the error to ensure it propagates up and can be caught by error boundaries
+    throw error;
   }
-  return res.json();
 };
 
 export async function getProductBySlug(slug: string) {
   console.log("Looking for product with slug:", slug);
-  const products = await getAllProducts();
-  const foundProduct = products.find((p: any) => p.slug === slug);
-  console.log("Found product:", foundProduct ? foundProduct.title : "None");
-  return foundProduct || null;
+  try {
+    const products = await getAllProducts(); // This now fetches from your Next.js API route
+    const foundProduct = products.find((p: any) => p.slug === slug);
+    console.log("Found product:", foundProduct ? foundProduct.title : "None");
+    return foundProduct || null;
+  } catch (error) {
+    console.error(`Error fetching product by slug ${slug}:`, error);
+    return null; // Return null or handle the error gracefully for the UI
+  }
 }
 
 export default getAllProducts;
-
