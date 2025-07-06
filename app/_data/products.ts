@@ -1,24 +1,3 @@
-// //app/_data/products.ts
-
-// const getAllProducts = async () => {
-//   const baseUrl = typeof window === 'undefined'
-//     ? process.env.API_URL || 'http://127.0.0.1:3001'
-//     : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
-
-//   const url = `${baseUrl}/api/products`;
-//   const res = await fetch(url);
-//   if (!res.ok) {
-//     throw new Error(`Failed to fetch products: ${res.status}`);
-//   }
-//   return res.json();
-// };
-
-// export async function getProductBySlug(slug: string) {
-//   const products = await getAllProducts();
-//   return products.find((p: any) => p.slug === slug) || null;
-// }
-
-// export default getAllProducts;
 
 
 // app/_data/products.ts
