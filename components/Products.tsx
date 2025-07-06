@@ -1,17 +1,20 @@
-
 import React from "react";
 import ProductItem from "./ProductItem";
 import { useSortStore } from "@/app/_zustand/sortStore";
-import { staticProducts, getProductBySlug } from "@/app/_data/products";
- 
+import getAllProducts from "@/app/_data/products";
+import type { Product } from "../lib/types";
+
 // Updated to accept both slug and searchParams
-const Products = ({ 
+const Products = async ({ 
   slug, 
   searchParams 
 }: { 
   slug?: string[]; 
   searchParams?: { [key: string]: string } 
 }) => {
+  // Fetch products from backend
+  const products: Product[] = await getAllProducts();
+
   // Get filter parameters
   const inStockFilter = searchParams?.inStock === "true";
   const outOfStockFilter = searchParams?.outOfStock === "true";
@@ -20,7 +23,7 @@ const Products = ({
   const categoryFilter = searchParams?.category || "";
 
   // Filter products based on parameters
-  let filteredProducts = staticProducts.filter((product) => {
+  let filteredProducts = products.filter((product: Product) => {
     // Stock filter
     const matchesStock =
       (inStockFilter && product.inStock) ||
@@ -47,7 +50,7 @@ const Products = ({
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-10">
       {filteredProducts.length > 0 ? (
-        filteredProducts.map((product) => (
+        filteredProducts.map((product: Product) => (
           <ProductItem key={product.id} product={product} color="black" />
         ))
       ) : (

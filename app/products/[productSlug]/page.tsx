@@ -1,36 +1,25 @@
-// app/products/[productSlug]/page.tsx
-    
+
+
 import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import AddToCartSingleProductBtn from "@/components/AddToCartSingleProductBtn";
 import { FaSquareFacebook, FaSquareXTwitter, FaSquarePinterest } from "react-icons/fa6";
-import { staticProducts } from "@/app/_data/products";
+import { getProductBySlug } from "@/app/_data/products";
 
-// Enable dynamic rendering for this route
+// Optional: Allow dynamic params
 export const dynamicParams = true;
 
-
- // Add this to your existing file
-export async function generateStaticParams() {
-  return staticProducts.map((product) => ({
-    productSlug: product.slug,
-  }));
-}
-
-// ✅ Generate metadata dynamically
 export async function generateMetadata({ params }: { params: { productSlug: string } }): Promise<Metadata> {
-  const product = staticProducts.find((p) => p.slug === params.productSlug);
+  const product = await getProductBySlug(params.productSlug);
   return {
-    title: product ? `${product.name} | DONDOIL` : "Product Not Found",
+    title: product ? `${product.title} | DONDOOIL` : "Product Not Found",
     description: product ? product.description : "This product does not exist.",
   };
 }
 
-// ✅ Main product details page
-export default function ProductDetailPage({ params }: { params: { productSlug: string } }) {
-  const product = staticProducts.find((p) => p.slug === params.productSlug);
-
+export default async function ProductPage({ params }: { params: { productSlug: string } }) {
+  const product = await getProductBySlug(params.productSlug);
   if (!product) {
     return (
       <main className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -43,36 +32,51 @@ export default function ProductDetailPage({ params }: { params: { productSlug: s
     <main className="min-h-screen bg-gradient-to-b from-green-50 to-white pt-48">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="flex justify-center">
-            <Image src={product.image} alt={product.name} width={400} height={400} className="rounded-lg shadow-lg" />
+          <div className="flex justify-center items-center w-full">
+            {/* <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl aspect-square">
+              <Image
+                src={product.mainImage}
+                alt={product.title}
+                fill
+                priority
+                sizes="(max-width: 5xl) 100vw, 600px"
+                className="object-cover rounded-2xl shadow-xl"
+              />
+            </div> */}
+<div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl aspect-square">
+  <Image
+    src={product.mainImage}
+    alt={product.title}
+    fill
+    priority
+    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 576px"
+    className="object-contain rounded-2xl shadow-xl" ></Image>
+</div>
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-green-800 mb-4">{product.name}</h1>
+            <h1 className="text-3xl font-bold text-green-800 mb-4">{product.title}</h1>
             <p className="text-gray-700 text-lg mb-4">{product.description}</p>
             <p className="text-xl font-semibold text-green-700">&#8358;{product.price.toLocaleString()}</p>
-            <p className="text-gray-600">Category: {product.category.name}</p>
+            <p className="text-gray-600">Category: {product.category?.name}</p>
             <p className="text-gray-600">Manufacturer: {product.manufacturer}</p>
             <p className={`mt-4 font-semibold ${product.inStock ? "text-green-600" : "text-red-600"}`}>
               {product.inStock ? "In Stock" : "Out of Stock"}
             </p>
-            <div className="flex flex-col gap-y-2 max-[500px]:items-center">
-                <div className="text-lg flex gap-x-2">
-                  <span>Share:</span>
-                  <div className="flex items-center gap-x-1 text-2xl">
-                    <FaSquareFacebook />
-                    <FaSquareXTwitter />
-                    <FaSquarePinterest />
-                  </div>
+            <div className="flex flex-col gap-y-2 max-[500px]:items-center mt-4">
+              <div className="text-lg flex gap-x-2">
+                <span>Share:</span>
+                <div className="flex items-center gap-x-1 text-2xl">
+                  <FaSquareFacebook />
+                  <FaSquareXTwitter />
+                  <FaSquarePinterest />
                 </div>
-
-                {/* ✅ Replace with dynamic button */}
-                <AddToCartSingleProductBtn product={product} quantityCount={1} />
               </div>
-
-           
+              <AddToCartSingleProductBtn product={product} quantityCount={1} />
+            </div>
           </div>
         </div>
       </div>
     </main>
   );
 }
+

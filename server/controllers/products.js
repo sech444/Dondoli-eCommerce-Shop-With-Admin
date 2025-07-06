@@ -404,6 +404,23 @@ async function getProductById(request, response) {
   return response.status(200).json(product);
 }
 
+// Get product by slug
+async function getProductBySlug(request, response) {
+  const { slug } = request.params;
+  try {
+    const product = await prisma.product.findUnique({
+      where: { slug },
+      include: { category: true },
+    });
+    if (!product) {
+      return response.status(404).json({ error: "Product not found" });
+    }
+    return response.status(200).json(product);
+  } catch (error) {
+    return response.status(500).json({ error: "Error fetching product by slug" });
+  }
+}
+
 module.exports = {
   getAllProducts,
   createProduct,
@@ -411,4 +428,5 @@ module.exports = {
   deleteProduct,
   searchProducts,
   getProductById,
+  getProductBySlug,
 };

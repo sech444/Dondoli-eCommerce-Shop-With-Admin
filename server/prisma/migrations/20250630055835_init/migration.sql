@@ -5,6 +5,7 @@ CREATE TABLE "Product" (
     "title" TEXT NOT NULL,
     "mainImage" TEXT NOT NULL,
     "price" INTEGER NOT NULL DEFAULT 0,
+    "originalPrice" DOUBLE PRECISION, 
     "rating" INTEGER NOT NULL DEFAULT 0,
     "description" TEXT NOT NULL,
     "manufacturer" TEXT NOT NULL,

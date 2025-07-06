@@ -1,4 +1,6 @@
 
+
+
 // ProductItem.tsx
 import React from "react";
 import Link from "next/link";
@@ -8,42 +10,41 @@ import AddToCartSingleProductBtn from "./AddToCartSingleProductBtn";
 
 interface ProductItemProps {
   product: Product;
-  color: string;
+  color?: string;
 }
 
-const ProductItem = ({ product, color }: ProductItemProps) => {
-  const { id, name, price, originalPrice, description, image, slug } = product;
+const ProductItem = ({ product, color}: ProductItemProps) => {
+  const { id, name, title, price, originalPrice, description, mainImage, slug } = product;
   const hasDiscount = originalPrice && originalPrice > price;
   const discountPercentage = hasDiscount
     ? Math.round(((originalPrice - price) / originalPrice) * 100)
     : 0;
 
-    // Function to get custom height for each product
-    const getImageHeight = (productId: string) => {
-      switch(productId) {
-        case "1": return "h-64"; // Family Pack - tallest
-        case "2": return "h-96 w-full"; // 200ml - medium-tall
-        case "3": return "h-72"; // Regular - default height
-        case "4": return "h-88"; // Premium - between tall and medium
-        default: return "h-72"; // Default
-      }
-    }
+  // REMOVED getImageHeight function
+  // We will use a consistent height for ALL images to make boxes uniform
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden max-w-xs w-full transition-transform duration-300 hover:scale-105">
+    // Make the outer div a flex container (column) and set its height to full if placed in a grid with items-stretch
+    <div className="bg-white rounded-lg shadow-md overflow-hidden max-w-xs w-full transition-transform duration-300 hover:scale-105 flex flex-col h-full">
       <div className="relative">
         <Link href={`/products/${product?.slug}`}>
-          <div className={`relative h-96 w-full${getImageHeight(id)}`}> 
+          {/* Use a consistent height for the image container, e.g., h-72 (288px) or h-80 (320px) */}
+          {/* This height will be applied to ALL product images */}
+          <div className="relative h-72 w-full"> {/* Changed getImageHeight(id) to a fixed h-72 */}
             <Image
-              src={image}
-              alt={name}
+              src={mainImage}
+              alt={title || name}
               fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: 'cover' }}
+              // The sizes prop needs to be accurate for image optimization.
+              // If the max-w-xs is 320px, then 100vw is usually accurate for small screens.
+              // For larger screens, it depends on the grid layout where ProductItem is used.
+              // Assuming it's in a grid where the item maxes out at ~320px.
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 320px" // Adjusted for max-w-xs (320px)
+              style={{ objectFit: 'contain' }} // Changed objectFit to 'contain' to show full image
               className="transition-opacity duration-300 hover:opacity-90"
             />
           </div>
-          
+
           {hasDiscount && (
             <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-md font-bold text-sm">
               {discountPercentage}% OFF
@@ -51,45 +52,43 @@ const ProductItem = ({ product, color }: ProductItemProps) => {
           )}
         </Link>
       </div>
-      
-      <div className="p-4">
-      <Link href={`/products/${product?.slug}`}>
+
+      {/* Make the content area flexible to fill remaining space */}
+      <div className="p-4 flex-grow flex flex-col">
+        <Link href={`/products/${product?.slug}`}>
           <h3 className="text-lg font-semibold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
-            {name}
+            {title || name}
           </h3>
         </Link>
-        
-        <p className="text-gray-600 text-sm line-clamp-2 mb-3">
+
+        {/* Use line-clamp-3 for a bit more description, adjust mb-auto to push buttons down */}
+        <p className="text-gray-600 text-sm line-clamp-3 mb-auto">
           {description}
         </p>
-        
-        <div className="flex items-center mb-4">
+
+        <div className="flex items-center mt-3 mb-4"> {/* Adjusted margin-top */}
           {hasDiscount && (
-            <span className="text-xl font-bold text-gray-500 line-through mr-4">
-              ₦{originalPrice.toLocaleString()}
+            <span className="text-lg font-bold text-gray-500 line-through mr-2">
+              ₦{originalPrice?.toLocaleString()}
             </span>
           )}
-          <span className={`text-xl font-bold text-green-600`}>
+          <span className="text-xl font-bold text-green-600">
             ₦{price.toLocaleString()}
           </span>
         </div>
-          {/* <Link
-        href={`/products/${product?.slug}`}
-        className="block flex justify-center items-center w-full uppercase text-orange-400 px-0 py-2 text-base border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
-      >
-        <Link href={`/products/${product.slug}`}>{product.name}</Link>
-        <p>View product</p>
-      </Link> */}
-      <Link
-        href={`/products/${product?.slug}`}
-        className="block flex justify-center items-center w-full uppercase text-orange-400 px-0 py-2 text-base border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
-      >
-        <p>View product</p>
-      </Link>
+
+        {/* View Product Button */}
+        <Link
+          href={`/products/${product?.slug}`}
+          className="block flex justify-center items-center w-full uppercase text-orange-400 px-0 py-2 text-base border border-black border-gray-300 font-bold text-blue-600 shadow-sm hover:bg-black hover:bg-gray-100 focus:outline-none focus:ring-2"
+
+        >
+          View Details
+        </Link>
+
+        {/* Add to Cart Button */}
         <button className={`w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-${color}-700 transition-colors`}>
-           {/* ✅ Replace with dynamic button */}
-           <AddToCartSingleProductBtn product={product} quantityCount={1} />
-             
+          <AddToCartSingleProductBtn product={product} quantityCount={1} />
         </button>
       </div>
     </div>
