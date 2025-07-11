@@ -67,8 +67,8 @@ import React from "react";
 import ProductItem from "./ProductItem"; // Assuming ProductItem is in the same directory or correctly imported
 import { Product } from "../lib/types"; // Assuming this path is correct for your Product type
 import Heading from "./Heading"; // Assuming this path is correct
-import getAllProducts from "@/app/_data/products";
-
+// components/ProductsSection.tsx (Corrected import)
+import { getAllProducts } from '@/app/_data/products'; // This imports the named export
 const ProductsSection = async () => {
   const products: Product[] = await getAllProducts();
 
