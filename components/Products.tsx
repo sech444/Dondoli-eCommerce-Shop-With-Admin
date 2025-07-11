@@ -1,7 +1,7 @@
 import React from "react";
 import ProductItem from "./ProductItem";
 import { useSortStore } from "@/app/_zustand/sortStore";
-import getAllProducts from "@/app/_data/products";
+import { getAllProducts } from "@/app/_data/products";
 import type { Product } from "../lib/types";
 
 // Updated to accept both slug and searchParams
