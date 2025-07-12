@@ -116,7 +116,8 @@ import { FaSquareFacebook, FaSquareXTwitter, FaSquarePinterest } from "react-ico
 import { getProductBySlug } from "@/app/_data/products";
 
 // Optional: Allow dynamic params
-export const dynamicParams = true;
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export async function generateMetadata({ params }: { params: { productSlug: string } }): Promise<Metadata> {
   const product = await getProductBySlug(params.productSlug);
