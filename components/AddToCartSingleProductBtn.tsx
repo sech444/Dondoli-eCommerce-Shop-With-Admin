@@ -1,35 +1,34 @@
-// components/AddToCartSingleProductBtn.tsx
+
+"use client";
+
+
+
 import React from "react";
-import { Product } from "../lib/types"; // Ensure this path is correct for your Product type
+import { useProductStore } from "@/app/_zustand/store";
+import toast from "react-hot-toast";
 
-// Define the props interface for AddToCartSingleProductBtn
-interface SingleProductBtnProps {
-  product: Product; // Use the canonical Product type from lib/types.ts
-  quantityCount: number;
-}
 
-const AddToCartSingleProductBtn = ({ product, quantityCount }: SingleProductBtnProps) => {
-  // Placeholder for actual add-to-cart logic
-  // You would typically have state management (e.g., React Context, Zustand)
-  // or a server action/API call here to handle adding the product to the cart.
+
+const AddToCartSingleProductBtn = ({ product, quantityCount } : SingleProductBtnProps) => {
+  const { addToCart, calculateTotals } = useProductStore();
 
   const handleAddToCart = () => {
-    // Implement your add to cart logic here
-    // For example:
-    console.log(`Adding ${quantityCount} of product: ${product.title} (ID: ${product.id}) to cart.`);
-    // You might dispatch an action to a cart context or make an API call
-    // addToCart(product, quantityCount);
-    alert(`Added ${product.title} to cart! Quantity: ${quantityCount}`); // Use a custom modal in production, not alert()
+    addToCart({
+      id: product?.id.toString(),
+      title: product?.title,
+      price: product?.price,
+      image: product?.mainImage,
+      amount: quantityCount
+    });
+    calculateTotals();
+    toast.success("Product added to the cart");
   };
-
   return (
     <button
       onClick={handleAddToCart}
-      className="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors"
-      // You might want to disable the button if product is out of stock
-      // disabled={product.inStock <= 0}
+      className="btn w-[200px] text-lg border border-gray-300 border-1 font-normal bg-green-600 text-white hover:bg-green-500 hover:text-white hover:border-blue-500 hover:scale-110 transition-all uppercase ease-in max-[500px]:w-full"
     >
-      Add to Cart
+      Add to cart
     </button>
   );
 };
