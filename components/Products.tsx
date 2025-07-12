@@ -1,3 +1,5 @@
+// components/Products.tsx
+
 import React from "react";
 import ProductItem from "./ProductItem";
 import { useSortStore } from "@/app/_zustand/sortStore";
