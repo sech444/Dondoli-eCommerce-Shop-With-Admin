@@ -34,9 +34,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export async function GET() {
-  // TEMPORARY LOGGING: Print the DATABASE_URL to Vercel logs
-  // Check Vercel deployment logs for this output to confirm the variable is set
-  console.log("Vercel Function DATABASE_URL:", process.env.DATABASE_URL);
+  ;
 
   try {
     // Fetch all products from the database
@@ -45,10 +43,7 @@ export async function GET() {
     // Return the products as a JSON response
     return NextResponse.json(products);
   } catch (error) {
-    // Log the error for debugging purposes
-    console.error("Error fetching products from database (Vercel):", error);
-    // Log the full error object for more details, helpful for debugging database connection issues
-    console.error("Full database error object:", JSON.stringify(error, Object.getOwnPropertyNames(error)));
+  
 
     // Return a 500 Internal Server Error response with a user-friendly message
     return NextResponse.json({ message: "Internal Server Error fetching products from database" }, { status: 500 });
