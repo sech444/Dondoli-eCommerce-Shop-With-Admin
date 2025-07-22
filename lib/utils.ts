@@ -85,7 +85,7 @@ export const incentives = [
 export const navigation = {
   sale: [
     { name: "Discounts", href: "#" },
-    { name: "News", href: "#" },
+    { name: "Testimony in Vedios", href: "/testimony-in-videos" },
     { name: "Register Discounts", href: "#" },
   ],
   about: [

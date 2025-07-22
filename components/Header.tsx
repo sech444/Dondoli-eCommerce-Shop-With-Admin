@@ -125,11 +125,11 @@ const Header = () => {
                   )}
                 </div>
 
-                <div className="flex items-center space-x-8">
-                  {['Home', 'Products', 'About', 'Contact'].map((item) => (
+                <div className="flex items-center space-x-6">
+                  {['Home', 'Products', 'About', 'Contact', 'Testimony In Videos'].map((item) => (
                     <Link 
                       key={item}
-                      href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                      href={item === 'Home' ? '/' : item === 'Testimony In Videos' ? '/testimony-in-videos' : `/${item.toLowerCase()}`}
                       className="hover:text-green-200 font-medium transition-colors"
                     >
                       {item}
@@ -144,10 +144,10 @@ const Header = () => {
           <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
             <nav className="bg-gradient-to-r from-green-800 to-green-700 text-white">
               <div className="px-4 py-2 space-y-2">
-                {['Home', 'Products', 'About', 'Contact'].map((item) => (
+                {['Home', 'Products', 'About', 'Contact', 'Testimony In Videos'].map((item) => (
                   <Link 
                     key={item}
-                    href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    href={item === 'Home' ? '/' : item === 'Testimony In Videos' ? '/testimony-in-videos' : `/${item.toLowerCase()}`}
                     className="block py-2 hover:text-green-200 font-medium transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -216,6 +216,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
