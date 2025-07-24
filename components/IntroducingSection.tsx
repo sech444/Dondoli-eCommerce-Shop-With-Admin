@@ -150,11 +150,7 @@ export default function LandingModal({ open, onClose }: { open: boolean; onClose
           </a>
           <span className="text-gray-600 text-xs sm:text-xs">Fast, direct order via WhatsApp</span> {/* Smaller text */}
         </div>
-        <div className="mt-3 sm:mt-4 text-center text-gray-500 text-[9px] xs:text-[10px] sm:text-xs"> {/* Reduced margin, smaller text */}
-          <p>
-            DONDOOIL, natural supplement, immune booster, NAFDAC approved, organic, herbal remedy, stem cell nutrition, holistic wellness, buy supplement Nigeria, immune system support, health product, wellness supplement, buy DONDOOIL online, Abuja, Nigeria
-          </p>
-        </div>
+        
       </div>
     </div>
   );
