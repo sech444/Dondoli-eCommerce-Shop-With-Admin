@@ -32,8 +32,22 @@ const AboutPage = () => {
               About DONDOOIL
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Bringing Originality to Natural Health Solutions
+              Pioneering Natural Health Solutions Through Organic Stem Cell Nutrition
             </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="/company-profile" 
+                className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg"
+              >
+                View Company Profile
+              </a>
+              <a 
+                href="/testimony-in-videos" 
+                className="border-2 border-green-600 text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-all duration-300 transform hover:scale-105"
+              >
+                Watch Testimonials
+              </a>
+            </div>
           </div>
           <SEOHeader />
           {/* Rest of the content remains the same */}

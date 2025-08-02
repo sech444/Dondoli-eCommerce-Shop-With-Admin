@@ -86,16 +86,17 @@ export const navigation = {
   sale: [
     { name: "Discounts", href: "#" },
     { name: "Testimony in Vedios", href: "/testimony-in-videos" },
-    { name: "Register Discounts", href: "#" },
+    { name: "Educational Flyers", href: "/flyers" },
+    { name: "Register Discounts", href: "/register-discount" },
   ],
   about: [
     { name: "About dondooil", href: "/about" },
     { name: "Work With Us", href: "#" },
-    { name: "Company Profile", href: "#" },
+    { name: "Company Profile", href: "/company-profile" },
   ],
   buy: [
     { name: "dondooil Loyalty Card", href: "#" },
-    { name: "Terms Of Use", href: "#" },
+    { name: "Terms Of Use", href: "/terms-of-use" },
     { name: "Privacy Policy", href: "#" },
     { name: "Complaints", href: "#" },
     { name: "Partners", href: "#" },

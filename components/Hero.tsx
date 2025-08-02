@@ -210,7 +210,7 @@ const Hero = () => {
             <Link href="/products" className="bg-green-600 text-white font-bold px-12 py-3 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg inline-block text-center">
               BUY NOW
             </Link>
-            <Link href="/news" className="bg-white text-green-600 font-bold px-12 py-3 rounded-lg border-2 border-green-600 hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg inline-block text-center">
+            <Link href="/flyers" className="bg-white text-green-600 font-bold px-12 py-3 rounded-lg border-2 border-green-600 hover:bg-green-50 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg inline-block text-center">
               LEARN MORE
             </Link>
           </div>

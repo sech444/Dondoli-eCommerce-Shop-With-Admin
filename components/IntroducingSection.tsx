@@ -38,9 +38,13 @@ export default function LandingModal({ open, onClose }: { open: boolean; onClose
           priority
         />
         
-        <p className="text-xs sm:text-sm text-gray-700 mb-2 sm:mb-3 text-center leading-relaxed"> {/* Smaller text, reduced margin, adjusted leading */}
-          <strong>A holistic healing organic stem cell dietary supplement</strong><br/> that boosts the <strong>immune system </strong>to treat diseases <br /> like ulcer, infection, arthritis, cholesterol and so on<br /> <strong>NAFDAC-approved</strong> formula combines{" "}
-         <br /> <strong>organic stem cell nutrition</strong> and <strong>herbal remedies</strong> <br /><strong>for holistic wellness.</strong>
+        <p className="text-xs sm:text-sm text-gray-700 mb-2 sm:mb-3 text-center leading-relaxed">
+          <strong>A revolutionary holistic healing organic stem cell dietary supplement</strong><br/> 
+          scientifically developed to boost the <strong>immune system</strong> and treat various health conditions<br /> 
+          including ulcer, infections, arthritis, cholesterol, and malaria.<br /> 
+          Our <strong>NAFDAC-approved</strong> formula (NO. A7-102209L) combines{" "}
+         <br /> <strong>organic stem cell nutrition</strong> with <strong>traditional herbal remedies</strong> <br />
+         <strong>for comprehensive holistic wellness.</strong>
         </p>
         {/* <ul className="text-green-700 mb-3 sm:mb-4 list-disc list-inside text-xs sm:text-sm">
           <li>NAFDAC Approved: NO. A7-102209L</li>
