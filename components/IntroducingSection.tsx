@@ -10,10 +10,9 @@ export default function LandingModal({ open, onClose }: { open: boolean; onClose
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-1 sm:px-2">
-      {/* Reduced max-w for md: to make it smaller on desktop.
-          Changed p-2 xs:p-4 sm:p-8 to p-4 sm:p-6 (slightly less padding). */}
-      <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 w-full max-w-xs sm:max-w-sm md:max-w-xl flex flex-col items-center relative overflow-y-auto max-h-[90dvh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 px-1 sm:px-2">
+      {/* Made popup smaller with reduced max-width and padding */}
+      <div className="bg-white rounded-2xl shadow-xl p-3 sm:p-4 w-full max-w-xs sm:max-w-sm md:max-w-md flex flex-col items-center relative overflow-y-auto max-h-[85dvh]">
         {/* Close button: top right on desktop, bottom center on mobile */}
         <button
           onClick={onClose}
@@ -33,9 +32,9 @@ export default function LandingModal({ open, onClose }: { open: boolean; onClose
        <Image
           src="/dondooil-logo.jpeg"
           alt="DONDOOIL Natural Wellness Supplement"
-          width={65}
-          height={65}
-          className="rounded-lg shadow-lg mb-3 sm:mb-6 w-40 h-40 sm:w-64 sm:h-64 object-cover"
+          width={50}
+          height={50}
+          className="rounded-lg shadow-lg mb-2 sm:mb-3 w-20 h-20 sm:w-24 sm:h-24 object-cover"
           priority
         />
         
