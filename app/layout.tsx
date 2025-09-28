@@ -11,7 +11,7 @@ import 'svgmap/dist/svgMap.min.css';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3001'),
   title: "DONDOIL APP | Health & Wellness Solutions | Enhancing immunity to fight diseases",
   description: "DONDOIL Health provides natural wellness solutions and health products. Discover our range of therapeutic oils and health supplements for optimal wellbeing.",
   keywords: "DONDOIL,Ishannderoil, Hosannahoil, health products, wellness, natural oils, therapeutic oils, health supplements, Enhancing immunity to fight diseases",

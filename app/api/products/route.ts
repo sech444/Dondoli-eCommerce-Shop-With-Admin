@@ -1,30 +1,4 @@
 
-
-
-// // app/api/products/route.ts
-// import { NextResponse } from "next/server";
-// import { PrismaClient } from '@prisma/client';
-// const prisma = new PrismaClient();
-
-// export async function GET() {
-//   // TEMPORARY LOGGING: Print the DATABASE_URL to Vercel logs
-//   console.log("Vercel Function DATABASE_URL:", process.env.DATABASE_URL);
-
-//   try {
-//     const products = await prisma.product.findMany();
-//     return NextResponse.json(products);
-//   } catch (error) {
-//     console.error("Error fetching products from database (Vercel):", error);
-//     // Log the full error object for more details
-//     console.error("Full database error object:", JSON.stringify(error, Object.getOwnPropertyNames(error)));
-//     return NextResponse.json({ message: "Internal Server Error fetching products from database" }, { status: 500 });
-//   } finally {
-//     if (prisma) {
-//       await prisma.$disconnect();
-//     }
-//   }
-// }
-
 // app/api/products/route.ts
 import { NextResponse } from "next/server";
 import { PrismaClient } from '@prisma/client';

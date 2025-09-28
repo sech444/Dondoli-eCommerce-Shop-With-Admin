@@ -1,3 +1,5 @@
+// Dondoli-eCommerce-Shop-With-Admin/utils/db.ts
+
 import { PrismaClient } from "@prisma/client"; 
 
 const prismaClientSingleton = () => {

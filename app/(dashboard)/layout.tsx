@@ -1,29 +1,23 @@
-import { useSession } from "next-auth/react";
-import { getServerSession } from "next-auth/next";
+// In app/(dashboard)/layout.tsx
+
+import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import toast from "react-hot-toast";
+import { authOptions } from "@/lib/auth"; // <-- THE ONLY CHANGE NEEDED
 
-export default async function Layout({
+export default async function DashboardLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-  const session: {
-    user: { name: string; email: string; image: string };
-  } | null = await getServerSession();
+}) {
+  // 1. Get the session on the server
+  const session = await getServerSession(authOptions);
 
-  if (!session) {
-    redirect("/");
+  // 2. Check for a valid session and the 'admin' role
+  if (!session || session.user?.role !== "admin") {
+    // 3. If check fails, redirect to the login page
+    redirect("/login");
   }
 
-  let email: string = await session?.user?.email;
-  
-  const res = await fetch(`http://localhost:3001/api/users/email/${email}`);
-  const data = await res.json();
-  // redirecting user to the home page if not admin
-  if (data.role === "user") {
-    redirect("/");
-  }
-
+  // 4. If check passes, render the admin content
   return <>{children}</>;
 }

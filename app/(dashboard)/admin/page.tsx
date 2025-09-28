@@ -1,3 +1,5 @@
+// Dondoli-eCommerce-Shop-With-Admin/app/(dashboard)/admin/page.tsx
+
 "use client";
 import { DashboardSidebar, StatsElement } from "@/components";
 import React, { useEffect } from "react";

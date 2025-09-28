@@ -20,6 +20,7 @@
     "@types/react-slick": "^0.23.13",
     "@vercel/analytics": "^1.5.0",
     "bcryptjs": "^2.4.3",
+    "dotenv": "^17.2.2",
     "express-fileupload": "^1.5.0",
     "flowbite-react": "^0.7.2",
     "lucide-react": "^0.475.0",

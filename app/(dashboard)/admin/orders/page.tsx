@@ -1,3 +1,5 @@
+// Dondoli-eCommerce-Shop-With-Admin/app/(dashboard)/admin/orders/page.tsx
+
 "use client";
 import { AdminOrders, DashboardSidebar } from "@/components";
 import React from "react";

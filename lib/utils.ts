@@ -84,7 +84,7 @@ export const incentives = [
 
 export const navigation = {
   sale: [
-    { name: "Discounts", href: "#" },
+    { name: "Discounts", href: "/welcome" },
     { name: "Testimony in Vedios", href: "/testimony-in-videos" },
     { name: "Educational Flyers", href: "/flyers" },
     { name: "Register Discounts", href: "/register-discount" },
@@ -95,7 +95,7 @@ export const navigation = {
     { name: "Company Profile", href: "/company-profile" },
   ],
   buy: [
-    { name: "dondooil Loyalty Card", href: "#" },
+    { name: "Home", href: "/welcome" },
     { name: "Terms Of Use", href: "/terms-of-use" },
     { name: "Privacy Policy", href: "#" },
     { name: "Complaints", href: "#" },

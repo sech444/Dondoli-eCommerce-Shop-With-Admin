@@ -1,3 +1,5 @@
+-- Dondoli-eCommerce-Shop-With-Admin/server/prisma/migrations/20250630055835_init/migration.sql
+
 -- CreateTable
 CREATE TABLE "Product" (
     "id" TEXT NOT NULL,
