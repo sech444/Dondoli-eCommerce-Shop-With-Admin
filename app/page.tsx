@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { CheckCircle, Shield, Heart, MapPin, Phone, Mail, Star, AlertCircle, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-const ORDERS_API = process.env.NEXT_PUBLIC_ORDERS_API || '/api/orders';
+const ORDERS_API = process.env.NEXT_PUBLIC_API_BASE_URL || '/api/orders';
 
 // Nigeria states (36 + FCT)
 const NG_STATES = [
