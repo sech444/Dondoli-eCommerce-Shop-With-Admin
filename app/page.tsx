@@ -216,19 +216,8 @@ const DondooilLandingPage = () => {
         throw error;
       }
 
-      // Success - reset form and show success modal
-      setShowSuccessModal(true);
-      setRetryCount(0);
-      setFormData({
-        fullName: '',
-        phoneNumber: '',
-        whatsappNumber: '',
-        deliveryAddress: '',
-        otherConcerns: ''
-      });
-      setSelectedPackage('');
-      setSelectedConcerns([]);
-      setSelectedState('');
+      // Success - redirect to thank you page
+      router.push('/thank-you');
       
     } catch (err: any) {
       const error = handleError(err, 'Order submission');
@@ -238,7 +227,6 @@ const DondooilLandingPage = () => {
       setIsSubmitting(false);
     }
   };
-
   // Retry submission
   const handleRetry = async () => {
     if (retryCount >= 3) {
