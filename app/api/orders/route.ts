@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server';
 // Get the backend URL from environment variables
 // For local development, use localhost:3001
 // For production, this should point to your backend server
-const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
 
 export async function GET(req: NextRequest) {
   // Log to confirm this function is running
