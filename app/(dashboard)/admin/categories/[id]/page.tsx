@@ -1,3 +1,5 @@
+// Dondoli-eCommerce-Shop-With-Admin/app/(dashboard)/admin/categories/[id]/page.tsx
+
 "use client";
 import { DashboardSidebar } from "@/components";
 import { useRouter } from "next/navigation";
