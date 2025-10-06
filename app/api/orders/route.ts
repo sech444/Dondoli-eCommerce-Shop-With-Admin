@@ -3,20 +3,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Get the backend URL from environment variables
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+// For local development, use localhost:3001
+// For production, this should point to your backend server
+const API_BASE_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
 
 export async function GET(req: NextRequest) {
-  // Log to Vercel to confirm this function is running
+  // Log to confirm this function is running
   console.log("GET /api/orders route handler invoked.");
-
-  // Check if the environment variable is set
-  if (!API_BASE_URL) {
-    console.error("FATAL: NEXT_PUBLIC_API_BASE_URL is not set in Vercel environment variables.");
-    return NextResponse.json(
-      { success: false, message: "Server configuration error: API base URL is not set." },
-      { status: 500 }
-    );
-  }
+  console.log("Backend URL:", API_BASE_URL);
 
   // Get search params (like ?page=1&limit=20) from the original request
   const { search } = req.nextUrl;
