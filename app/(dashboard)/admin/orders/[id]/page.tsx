@@ -36,7 +36,9 @@ const OrderDetailPage = () => {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await fetch(`/api/orders/${orderId}`);
+        // Call backend API directly
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
+        const response = await fetch(`${backendUrl}/api/orders/${orderId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch order');
         }
@@ -62,7 +64,9 @@ const OrderDetailPage = () => {
   const updateStatus = async (newStatus: string) => {
     setIsUpdating(true);
     try {
-      const response = await fetch(`/api/orders/${orderId}/status`, {
+      // Call backend API directly
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
+      const response = await fetch(`${backendUrl}/api/orders/${orderId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
