@@ -41,8 +41,9 @@ const AdminOrders = () => {
       setIsLoading(true);
       setError(null);
       try {
-        // Use the Next.js API route, not the direct backend URL
-        const response = await fetch(`/api/orders?page=${page}&limit=20`);
+        // Call backend API directly
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
+        const response = await fetch(`${backendUrl}/api/orders?page=${page}&limit=20`);
         if (!response.ok) {
           throw new Error('Failed to fetch orders');
         }
