@@ -25,7 +25,7 @@ const OrderDetailPage = () => {
   const params = useParams();
   const router = useRouter();
   const orderId = params.id as string;
-  
+
   const [order, setOrder] = useState<Order | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -37,7 +37,7 @@ const OrderDetailPage = () => {
       setError(null);
       try {
         // Call backend API directly
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
+        const backendUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
         const response = await fetch(`${backendUrl}/api/orders/${orderId}`);
         if (!response.ok) {
           throw new Error('Failed to fetch order');
@@ -65,7 +65,7 @@ const OrderDetailPage = () => {
     setIsUpdating(true);
     try {
       // Call backend API directly
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:3001';
+      const backendUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3001';
       const response = await fetch(`${backendUrl}/api/orders/${orderId}/status`, {
         method: 'PUT',
         headers: {
