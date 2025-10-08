@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -105,4 +104,11 @@ model LandingOrder {
   @@index([createdAt], map: "idx_landingorder_createdAt")
   @@index([state], map: "idx_landingorder_state")
   @@index([phoneNumber], map: "idx_landingorder_phone")
+}
+
+model Visitor {
+  id        String   @id @default(uuid())
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
 }
