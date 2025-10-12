@@ -1,11 +1,10 @@
-// /home/sechmos/Desktop/Dondoil/Dondoli-eCommerce-Shop-With-Admin/app/page.tsx
 'use client';
 
 import React, { useEffect, useState } from 'react';
 import { CheckCircle, Shield, Heart, MapPin, Phone, Mail, Star, AlertCircle, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 
-const ORDERS_API = process.env.NEXT_PUBLIC_API_BASE_URL || '/api/orders';
+const ORDERS_API = process.env.NEXT_PUBLIC_BASE_URL || '/api/orders';
 
 // Nigeria states (36 + FCT)
 const NG_STATES = [
@@ -217,8 +216,19 @@ const DondooilLandingPage = () => {
         throw error;
       }
 
-      // Success - redirect to thank you page
-      router.push('/thank-you');
+      // Success - reset form and show success modal
+      setShowSuccessModal(true);
+      setRetryCount(0);
+      setFormData({
+        fullName: '',
+        phoneNumber: '',
+        whatsappNumber: '',
+        deliveryAddress: '',
+        otherConcerns: ''
+      });
+      setSelectedPackage('');
+      setSelectedConcerns([]);
+      setSelectedState('');
       
     } catch (err: any) {
       const error = handleError(err, 'Order submission');
@@ -228,6 +238,7 @@ const DondooilLandingPage = () => {
       setIsSubmitting(false);
     }
   };
+
   // Retry submission
   const handleRetry = async () => {
     if (retryCount >= 3) {

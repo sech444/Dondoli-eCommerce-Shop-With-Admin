@@ -28,7 +28,8 @@ app.use(fileUpload());
 
 // --- Production-Ready CORS Configuration ---
 const allowedOrigins = [
-  'https://www.dondooil.com',
+  'https://www.dondooil.com/',
+  'https://dondooil.com/',
   'http://localhost:3000'
 ];
 
